@@ -19,7 +19,7 @@
                             <tr>
                                 {{-- {{ dd($groups) }} --}}
                                 <th>Group Name</th>
-                                <th>Created By</th>
+                                <th>Description</th>
                                 <th>Action</th>
 
                             </tr>
@@ -29,7 +29,7 @@
                             @foreach ( $groups as $team )
                             <tr>
                                 <td>{{ $team->group_name }}</td>
-                                <td>{{ $team->created_by }}</td>
+                                <td>{{ $team->description }}</td>
                                 <td>
                                     <a href="{{ route('edit', ['id'=>$team->id]) }}" class="btn btn-success">Edit</a>
                                     <a href="{{ route('delete', ['id'=>$team->id]) }}" class="btn btn-danger">Delete</a>

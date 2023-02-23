@@ -17,8 +17,8 @@
                                     <input class="form-control" id="inputLastName" type="text" name="group_name" placeholder="Group Name" />
                                 </div>
                                 <div class="form-floating mb-3 mb-md-0">
-                                        <label>Created By</label>
-                                        <input class="form-control" name="created_by" type="text" placeholder="Created By" />
+                                        <label>Description</label>
+                                        <textarea class="form-control" name="description" placeholder="Description"></textarea>
                                 </div>
                                 <div class="mt-4 mb-0">
                                     <div class="d-grid">

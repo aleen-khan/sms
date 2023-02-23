@@ -14,4 +14,14 @@ class GroupMember extends Model
         'contact_name',
         'contact_number'
     ];
+
+    /**
+     * Get the user associated with the GroupMember
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function group()
+    {
+        return $this->hasOne(Group::class, 'id', 'group_id');
+    }
 }

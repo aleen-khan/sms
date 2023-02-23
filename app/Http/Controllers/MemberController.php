@@ -9,36 +9,40 @@ use Illuminate\Http\Request;
 class MemberController extends Controller
 {
     public function addMember(){
-        $group = Group::all()->toArray();
-        // dd($group);
-        return view('admin.groupmember.add-member', compact('group'));
+        $groups = Group::where('created_by', auth()->user()->id)->get();
+        return view('admin.groupmember.add-member', compact('groups'));
     }
 
     public function manageMember(){
-        $members = GroupMember::get();
+        $members = GroupMember::whereHas('group' , function ($item){
+            $item->where('created_by', auth()->user()->id);
+    })->get();
+        info($members);
         return view('admin.groupmember.manage-member', compact('members'));
     }
 
     public function store(Request $request){
-        // return $request->all();
-
         $members = GroupMember::create([
+            'group_id' => $request->group,
             'contact_name' => $request->contact_name,
             'contact_number' => $request->contact_number,
-
         ]);
         return back();
     }
 
     public function editMember($id){
         $members = GroupMember::findOrFail($id);
+        info($members);
         return view('admin.groupmember.edit-member', compact('members'));
     }
 
-    public function updateMember($id){
-        $members = GroupMember::findOrFail($id);
-        $members->contact_name;
-        $members->contact_number;
+
+    public function updateMember(Request $request){
+        $members = GroupMember::find($request->id);
+        $members->update([
+            'contact_name' => $request->contact_name,
+            'contact_number' => $request->contact_number
+        ]);
         return redirect(route('manage.member'));
     }
 

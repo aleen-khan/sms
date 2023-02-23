@@ -11,8 +11,9 @@
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
                         <div class="card-header"><h3 class="text-center font-weight-light my-4">Add Contact</h3></div>
                         <div class="card-body">
-                            <form action="{{ route('add.member') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('update.member') }}" method="post" enctype="multipart/form-data">
                                 @csrf
+                                <input name="id" value={{ $members->id }} hidden/>
                                 <div class="form-floating">
                                     <label>Contact Name</label>
                                     <input class="form-control" id="inputLastName" type="text" name="contact_name" value="{{ $members->contact_name }}" placeholder="Contact Name" />

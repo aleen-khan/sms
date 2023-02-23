@@ -12,15 +12,15 @@ class GroupController extends Controller
     }
 
     public function manageGroup(){
-        $groups = Group::get();
+        $groups = Group::where('created_by', auth()->user()->id)->get();
         return view('admin.group.manage-group', compact('groups'));
     }
 
     public function store(Request $request){
-        // dd($request->all());
         $groups = Group::create([
             'group_name' => $request->group_name,
-            'created_by' => 'Aleen',
+            'description' => $request->description,
+            'created_by' => auth()->user()->id,
         ]);
         return back();
     }
@@ -30,10 +30,13 @@ class GroupController extends Controller
         return view('admin.group.edit-group', compact('groups'));
     }
 
-    public function updateGroup(Request $request, $id){
-        $groups = Group::findOrFail($id);
-        $groups->group_name;
-        $groups->created_by;
+    public function updateGroup(Request $request){
+        // return $request->all();
+        $groups = Group::find($request->id);
+        $groups->update([
+            'group_name' => $request->group_name,
+            'description' => $request->description
+        ]);
         return redirect(route('manage.group'));
 
     }

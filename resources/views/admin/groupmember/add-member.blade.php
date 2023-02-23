@@ -13,17 +13,15 @@
                         <div class="card-body">
                             <form action="{{ route('add.member') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                {{-- <div class="form-floating">
+                                <div class="form-floating">
                                     <label>Choose a Group:</label>
                                     <select name="group" id="">
-
-                                        {{ dd($groups) }}
-                                    @foreach ( $groups as $team )
-                                    <option value="{{ $team['id'] }}">{{ $team['group'] }}</option>
+                                    @foreach($groups as $team)
+                                    <option value="{{ $team['id'] }}">{{ $team['group_name'] }}</option>
                                     @endforeach
 
                                     </select>
-                                </div> --}}
+                                </div>
                                 <div class="form-floating">
                                     <label>Contact Name</label>
                                     <input class="form-control" id="inputLastName" type="text" name="contact_name" placeholder="Contact Name" />

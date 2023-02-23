@@ -18,6 +18,8 @@ use App\Http\Controllers\ServiceController;
 |
 */
 
+Auth::routes();
+
 Route::prefix('admin')->middleware('auth')->group(function(){
 
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
@@ -40,7 +42,6 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::get('/delete-member/{id}', [MemberController::class, 'deleteMember'])->name('delete.member');
 });
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

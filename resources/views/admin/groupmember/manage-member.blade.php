@@ -20,6 +20,7 @@
                                  {{-- {{ dd($members) }} --}}
                                 <th>Contact Name</th>
                                 <th>Contact Number</th>
+                                <th>Group Name</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -28,6 +29,7 @@
                             <tr>
                                 <td>{{ $contact->contact_name }}</td>
                                 <td>{{ $contact->contact_number }}</td>
+                                <td>{{ $contact->group->group_name }}</td>
                                 <td>
                                     <a href="{{ route('edit.member', ['id'=>$contact->id]) }}" class="btn btn-success">Edit</a>
                                     <a href="{{ route('delete.member', ['id'=>$contact->id]) }}" class="btn btn-danger">Delete</a>
