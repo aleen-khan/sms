@@ -1,27 +1,38 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="">
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="{{ asset('loginAsset/fonts/icomoon/style.css') }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="stylesheet" href="{{ asset('loginAsset/css/owl.carousel.min.css') }}">
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('loginAsset/css/bootstrap.min.css') }}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{{ asset('loginAsset/css/style.css') }}">
+           
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <title>SMS</title>
+
 </head>
 <body>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    SMS
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -76,5 +87,19 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{ asset('loginAsset/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('loginAsset/js/popper.min.js') }}"></script>
+    <script src="{{ asset('loginAsset/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('loginAsset/js/main.js') }}"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

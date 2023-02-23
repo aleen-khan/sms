@@ -18,6 +18,10 @@ use App\Http\Controllers\ServiceController;
 |
 */
 
+Route::get('/', function () {
+   return view('login');
+});
+
 Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->group(function(){
