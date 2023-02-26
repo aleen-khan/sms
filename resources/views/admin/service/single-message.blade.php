@@ -10,8 +10,36 @@
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
                         <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Message</h3></div>
                         <div class="card-body">
-                            <form action="{{route('send-sms')}}" method="post">
+                            <form action="{{route('single.message')}}" method="post">
                                 @csrf
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card">
+                                            <label>Choose a Group:</label>
+                                            <select name="" id="">
+                                                <option value="">Family</option>
+                                                <option value="">Friends</option>
+                                                <option value="">Colleague</option>
+                                                <option value="">Little Brother</option>
+                                                <option value="">Backbencher</option>
+                                                <option value="">Little</option>
+                                                <option value=""></option>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card form-floating mb-3 mb-md-0">
+                                            <label>Choose a Contact:</label>
+                                            <select name="" id="">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                              
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-floating mb-3 mb-md-0">

@@ -22,7 +22,7 @@ class GroupController extends Controller
             'description' => $request->description,
             'created_by' => auth()->user()->id,
         ]);
-        return back();
+        return redirect(route('manage.group'))->with('message','Saved Successfully');
     }
 
     public function edit($id){

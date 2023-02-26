@@ -34,9 +34,12 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::post('/update-group', [GroupController::class, 'updateGroup'])->name('update.group');
     Route::get('/delete/{id}', [GroupController::class, 'delete'])->name('delete');
 
-    Route::get('/service', [ServiceController::class, 'sendSms'])->name('service');
+    // Route::get('/service', [ServiceController::class, 'sendSms'])->name('service');
+    Route::get('/single-message', [ServiceController::class, 'singleMessage'])->name('single.message');
+    Route::get('/multiple-message', [ServiceController::class, 'multipleMessage'])->name('multiple.message');
     Route::post('/send-sms', [ServiceController::class, 'store'])->name('send-sms');
-    Route::get('/service-history', [ServiceController::class, 'serviceHistory'])->name('service.history');
+    Route::get('/message-history', [ServiceController::class, 'messageHistory'])->name('message.history');
+    Route::get('/message-info', [ServiceController::class, 'messageInfo'])->name('message.info');
 
     Route::get('/add-member', [MemberController::class, 'addMember'])->name('add.member');
     Route::get('/manage-member', [MemberController::class, 'manageMember'])->name('manage.member');

@@ -27,7 +27,7 @@ class MemberController extends Controller
             'contact_name' => $request->contact_name,
             'contact_number' => $request->contact_number,
         ]);
-        return back();
+        return redirect(route('manage.member'))->with('message','Saved Successfully');
     }
 
     public function editMember($id){

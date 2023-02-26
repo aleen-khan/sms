@@ -8,13 +8,21 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    public function sendSms(){
-        return view('admin.service.sendSms');
+    public function singleMessage(){
+        return view('admin.service.single-message');
     }
 
-    public function serviceHistory(){
+    public function multipleMessage(){
+        return view('admin.service.multiple-message');
+    }
+
+    public function messageInfo(){
+        return view('admin.service.message-info');
+    }
+
+    public function messageHistory(){
         $messages = Message::get();
-        return view('admin.service.serviceHistory', compact('messages'));
+        return view('admin.service.message-history', compact('messages'));
     }
     public function store(Request $request){
         $message = Message::create([
