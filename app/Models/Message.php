@@ -18,4 +18,14 @@ class Message extends Model
         'draft',
         'total_receiver'
     ];
+
+    /**
+     * Get the user associated with the Message
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function sender()
+    {
+        return $this->hasOne(MessageInfo::class, 'id');
+    }
 }

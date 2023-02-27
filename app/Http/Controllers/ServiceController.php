@@ -2,21 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
+use App\Models\GroupMember;
 use App\Models\Message;
 use App\Models\MessageHistory;
+use App\Models\MessageInfo;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
     public function singleMessage(){
-        return view('admin.service.single-message');
+        $messages = Group::where('created_by', auth()->user()->id)->get();
+        // $gid = $request->post('gid');
+        // $messages = GroupMember::where('contact_name')->get();
+        return view('admin.service.single-message', compact('messages'));
     }
 
+    public function groupMembers($id){
+        // return 'hello';
+        return $messages = GroupMember::where('group_id', $id)->get();
+        return view('admin.service.single-message', compact('messages'));
+    }
+
+    
+
     public function multipleMessage(){
-        return view('admin.service.multiple-message');
+        $messages = Group::where('created_by', auth()->user()->id)->get();
+        return view('admin.service.multiple-message', compact('messages'));
     }
 
     public function messageInfo(){
+        $receivers = GroupMember::get(); 
         return view('admin.service.message-info');
     }
 
@@ -37,6 +53,11 @@ class ServiceController extends Controller
         MessageHistory::create([
             'user_id' => 1,
             'message_id' => $message->id,
+        ]);
+        MessageInfo::create([
+            'group_member_id',
+            'number',
+            'message_id'
         ]);
         return back();
     }

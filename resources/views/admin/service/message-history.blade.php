@@ -17,11 +17,8 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Group</th>
-                                <th>Contact</th>
                                 <th>Number</th>
-                                <th>Message</th>
-                                <th>Status</th>
+                                <th>Message</th>                                
                             </tr>
                         </thead>
                         <tbody>
@@ -29,10 +26,7 @@
                         @foreach ( $messages as $chat )
                             <tr>
                                 <td>{{ $chat->sender_id }}</td>
-                                <td>{{ $chat->body }}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $chat->body }}</td>                                
                             </tr>
                         @endforeach
 

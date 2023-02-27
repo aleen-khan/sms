@@ -16,16 +16,12 @@
                                     <div class="col">
                                         <div class="card">
                                             <label>Choose Multiple Group:</label>
-                                            <select name="" id="">
-                                                <option value="">Family</option>
-                                                <option value="">Friends</option>
-                                                <option value="">Colleague</option>
-                                                <option value="">Little Brother</option>
-                                                <option value="">Backbencher</option>
-                                                <option value="">Little</option>
-                                                <option value=""></option>
-                                                <option value=""></option>
-                                            </select>
+                                            <select name="group" id="">
+                                                @foreach($messages as $grouping)
+                                                <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}</option>
+                                                @endforeach
+            
+                                                </select>
                                         </div>
                                     </div>
                                 </div>
