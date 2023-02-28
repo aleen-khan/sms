@@ -19,7 +19,7 @@
                                             
                                             <label>Choose Multiple Group:</label>
                                             
-                                            <select name="group[]" id="group" class="form-control selectpicker" multiple data-live-search="true">
+                                            <select name="mul_group[]" id="mul_group" class="form-control selectpicker" multiple data-live-search="true">
                                                 
                                                 
                                                 @if (count($messages) > 0)

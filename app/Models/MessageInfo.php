@@ -22,6 +22,15 @@ class MessageInfo extends Model
      */
     public function receivers()
     {
-        return $this->hasOne(GroupMember::class, 'id', 'group_id');
+        return $this->hasOne(GroupMember::class, 'id', 'group_member_id');
+    }
+    /**
+     * Get the message associated with the MessageInfo
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function message()
+    {
+        return $this->hasOne(Message::class, 'id', 'message_id');
     }
 }

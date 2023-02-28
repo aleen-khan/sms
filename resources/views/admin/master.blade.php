@@ -126,6 +126,28 @@
                     }
                 })
             });
+            jQuery('#mul_group').multiselect().change(function(e) {
+                console.log(e.target.value)
+                let id = e.target.value;
+                // jQuery.ajax({
+
+                //     url: "group-members/" + id,
+                //     type: 'get',
+                //     success: function(result) {
+                //         // console.log('hello')
+                //         console.log(result)
+                //         $('#mySelect').html('')
+                //         $.each(result, function(i, item) {
+                //             $('#mySelect').append($('<option>', {
+                //                 value: item.id,
+                //                 text: item.contact_name
+
+                //                 // + ' ('+ item.contact_number + ')'
+                //             }));
+                //         });
+                //     }
+                // })
+            });
         })
     </script>
     {{-- <script>

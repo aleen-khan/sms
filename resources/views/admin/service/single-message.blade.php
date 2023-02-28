@@ -46,7 +46,7 @@
                                             
                                             <label>Choose a Contact:</label>
                                             
-                                            <select name="group_id" id="mySelect">
+                                            <select name="group_member_id" id="mySelect">
                                                 
                                                 <option value="">Select Contact</option>
                                                 

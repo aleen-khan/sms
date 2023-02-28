@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('title')
-    Message Info
+    Sms History
 @endsection
 @section('content')
     <div class="container-fluid">
@@ -17,26 +17,19 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Group</th>
-                                <th>Contact</th>
                                 <th>Number</th>
                                 <th>Message</th>
-                                <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>      
-                            @if (count($receivers) > 0)
-                            @foreach($receivers as $receiver)
+                        <tbody>
+
+                        @foreach ( $messages as $chat )
                             <tr>
-                                <td>{{ $receiver['group'] }}</td>
-                                <td>{{ $receiver['name'] }}</td>
-                                <td>{{ $receiver['number'] }}</td>
-                                <td>{{ $receiver['message'] }}</td>
-                                <td>{{ $receiver['status'] }}</td>
-                            </tr>   
-                            @endforeach
-                            @endif                  
-                                             
+                                <td>{{ $chat->sender_id }}</td>
+                                <td>{{ $chat->body }}</td>
+                            </tr>
+                        @endforeach
+
                         </tbody>
                     </table>
                 </div>

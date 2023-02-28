@@ -30,8 +30,20 @@ class ServiceController extends Controller
     }
 
     public function messageInfo(){
-        $receivers = GroupMember::get(); 
-        return view('admin.service.message-info');
+        $receivers = MessageInfo::with(['receivers.group'])->whereHas('message', function($item){
+            $item->where('sender_id', auth()->user()->id);
+        })->get(); 
+        $receivers->transform(function ($item) {
+            return [
+                'group' => $item->receivers->group->group_name,
+                'name' => $item->receivers->contact_name,
+                'number' => $item->receivers->contact_number,
+                'message' => $item->message->body,
+                'status' => $item->message->status,
+            ];
+        });
+        // return $receivers;
+        return view('admin.service.message-info', compact('receivers'));
     }
 
     public function messageHistory(){
@@ -46,7 +58,7 @@ class ServiceController extends Controller
             'sms_count'       => ceil(strlen($request->message)/80),
             'total_count'     => ceil(strlen($request->message)/80) * 1,
             'total_receiver'  => 1,
-            'sender_id'       => '01911155454',
+            'sender_id'       => auth()->user()->id,
             'draft'           => false,
             'status'          => 'pending',
         ]);
@@ -55,7 +67,7 @@ class ServiceController extends Controller
             'message_id' => $message->id,
         ]);
         MessageInfo::create([
-            'group_member_id',
+            'group_member_id' => $request->group_member_id,
             'number',
             'message_id' => $message->id
         ]);
