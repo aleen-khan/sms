@@ -23,8 +23,8 @@ class MemberController extends Controller
 
     public function store(Request $request){
         $members = GroupMember::create([
-            'group_id' => $request->group,
-            'contact_name' => $request->contact_name,
+            'group_id'       => $request->group,
+            'contact_name'   => $request->contact_name,
             'contact_number' => $request->contact_number,
         ]);
         return redirect(route('manage.member'))->with('message','Saved Successfully');
@@ -40,7 +40,7 @@ class MemberController extends Controller
     public function updateMember(Request $request){
         $members = GroupMember::find($request->id);
         $members->update([
-            'contact_name' => $request->contact_name,
+            'contact_name'   => $request->contact_name,
             'contact_number' => $request->contact_number
         ]);
         return redirect(route('manage.member'));

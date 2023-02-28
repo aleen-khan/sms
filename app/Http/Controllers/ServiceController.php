@@ -24,8 +24,6 @@ class ServiceController extends Controller
         return view('admin.service.single-message', compact('messages'));
     }
 
-    
-
     public function multipleMessage(){
         $messages = Group::where('created_by', auth()->user()->id)->get();
         return view('admin.service.multiple-message', compact('messages'));
@@ -40,24 +38,26 @@ class ServiceController extends Controller
         $messages = Message::get();
         return view('admin.service.message-history', compact('messages'));
     }
+    
     public function store(Request $request){
         $message = Message::create([
-            'body' => $request->message,
-            'sms_count' => ceil(strlen($request->message)/80),
-            'total_receiver' => 1,
-            'total_count' => ceil(strlen($request->message)/80) * 1,
-            'status' => 'pending',
-            'sender_id' => '01911155454',
-            'draft' => false,
+            'body'            => $request->message,
+            'receiver_number' => $request->contact_number,
+            'sms_count'       => ceil(strlen($request->message)/80),
+            'total_count'     => ceil(strlen($request->message)/80) * 1,
+            'total_receiver'  => 1,
+            'sender_id'       => '01911155454',
+            'draft'           => false,
+            'status'          => 'pending',
         ]);
         MessageHistory::create([
-            'user_id' => 1,
+            'user_id'    => 1,
             'message_id' => $message->id,
         ]);
         MessageInfo::create([
             'group_member_id',
             'number',
-            'message_id'
+            'message_id' => $message->id
         ]);
         return back();
     }

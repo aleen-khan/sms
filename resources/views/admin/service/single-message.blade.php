@@ -19,6 +19,12 @@
                                     <div class="col">
                                         <div class="card">
                                             
+                                            {{-- <label>Choose Group</label>
+
+                                            <select name="group" id="group" multiple="multiple">
+
+                                            </select> --}}
+
                                             <label>Choose a Group:</label>
                                             
                                             <select name="group" id="group">
@@ -40,7 +46,7 @@
                                             
                                             <label>Choose a Contact:</label>
                                             
-                                            <select name="group_id" id="group_id">
+                                            <select name="group_id" id="mySelect">
                                                 
                                                 <option value="">Select Contact</option>
                                                 

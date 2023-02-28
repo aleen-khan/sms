@@ -16,16 +16,17 @@ return new class extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->text('body');
-            $table->integer('sms_count');
-            $table->integer('total_count');
+            $table->integer('receiver_number');
+            $table->integer('sms_count',);
+            $table->integer('total_count',);
+            $table->integer('total_receiver',);
+            $table->integer('sender_id',);
+            $table->string('draft');
             $table->string('status');
-            $table->integer('sender_id');
-            $table->integer('total_receiver');
-            $table->integer('draft');
             $table->timestamps();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

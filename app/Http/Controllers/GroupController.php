@@ -18,9 +18,9 @@ class GroupController extends Controller
 
     public function store(Request $request){
         $groups = Group::create([
-            'group_name' => $request->group_name,
+            'group_name'  => $request->group_name,
             'description' => $request->description,
-            'created_by' => auth()->user()->id,
+            'created_by'  => auth()->user()->id,
         ]);
         return redirect(route('manage.group'))->with('message','Saved Successfully');
     }
@@ -34,7 +34,7 @@ class GroupController extends Controller
         // return $request->all();
         $groups = Group::find($request->id);
         $groups->update([
-            'group_name' => $request->group_name,
+            'group_name'  => $request->group_name,
             'description' => $request->description
         ]);
         return redirect(route('manage.group'));

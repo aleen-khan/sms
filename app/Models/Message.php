@@ -11,12 +11,13 @@ class Message extends Model
 
     protected $fillable = [
         'body',
+        'receiver_number',
         'sms_count',
         'total_count',
-        'status',
+        'total_receiver',
         'sender_id',
         'draft',
-        'total_receiver'
+        'status'
     ];
 
     /**
@@ -28,4 +29,5 @@ class Message extends Model
     {
         return $this->hasOne(MessageInfo::class, 'id');
     }
+    
 }

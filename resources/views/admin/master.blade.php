@@ -100,26 +100,65 @@
     <script src="{{ asset('adminAsset') }}/js/demo/chart-area-demo.js"></script>
     <script src="{{ asset('adminAsset') }}/js/demo/chart-pie-demo.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script>
-        
         jQuery(document).ready(function() {
             jQuery('#group').change(function(e) {
                 console.log(e.target.value)
                 let id = e.target.value;
                 jQuery.ajax({
-                    
+
                     url: "group-members/" + id,
                     type: 'get',
                     success: function(result) {
-                        jQuery('#contact_name')
                         // console.log('hello')
                         console.log(result)
+                        $('#mySelect').html('')
+                        $.each(result, function(i, item) {
+                            $('#mySelect').append($('<option>', {
+                                value: item.id,
+                                text: item.contact_name
+
+                                // + ' ('+ item.contact_number + ')'
+                            }));
+                        });
                     }
                 })
             });
         })
     </script>
+    {{-- <script>
+        
+        // asign data a variable
+        
+        jQuery(document).ready(function() {
+            jQuery('#group').change(function(e) {
+                console.log(e.target.value)
+                // get the id / ids
+                let id = e.target.value;
+                jQuery.ajax({
+                    url: "multiple-group/" + id,
+                    type: 'get',
+                    success:function(result) {
+                        console.log(result)
+                    }
+
+                })
+
+                // loop from contacts to get selected id's contacts
+                    // let results = [];
+            });
+        })
+
+        // let contacts = 
+        log this is contact
+        console.log(contacts);
+
+        
+
+                                
+    </script> --}}
 
 </body>
 

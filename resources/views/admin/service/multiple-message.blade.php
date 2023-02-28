@@ -12,16 +12,30 @@
                         <div class="card-body">
                             <form action="{{route('multiple.message')}}" method="post">
                                 @csrf
+                                
                                 <div class="row">
                                     <div class="col">
                                         <div class="card">
+                                            
                                             <label>Choose Multiple Group:</label>
-                                            <select name="group" id="">
-                                                @foreach($messages as $grouping)
-                                                <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}</option>
-                                                @endforeach
+                                            
+                                            <select name="group[]" id="group" class="form-control selectpicker" multiple data-live-search="true">
+                                                
+                                                
+                                                @if (count($messages) > 0)
+
+                                                    @foreach($messages as $grouping)
+                                                    
+                                                    <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}</option>
+                                                    
+                                                    @endforeach
+                                                    
+                                                @endif
+                                                                                                                                                                                      
+                                            </select>
+                                                
+                                                
             
-                                                </select>
                                         </div>
                                     </div>
                                 </div>
