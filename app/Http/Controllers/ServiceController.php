@@ -35,11 +35,11 @@ class ServiceController extends Controller
         })->get(); 
         $receivers->transform(function ($item) {
             return [
-                'group' => $item->receivers->group->group_name,
-                'name' => $item->receivers->contact_name,
-                'number' => $item->receivers->contact_number,
+                'group'   => $item->receivers->group->group_name,
+                'name'    => $item->receivers->contact_name,
+                'number'  => $item->receivers->contact_number,
                 'message' => $item->message->body,
-                'status' => $item->message->status,
+                'status'  => $item->message->status,
             ];
         });
         // return $receivers;
@@ -62,6 +62,7 @@ class ServiceController extends Controller
             'draft'           => false,
             'status'          => 'pending',
         ]);
+        // return redirect(route('message.info'));
         MessageHistory::create([
             'user_id'    => 1,
             'message_id' => $message->id,
@@ -69,7 +70,7 @@ class ServiceController extends Controller
         MessageInfo::create([
             'group_member_id' => $request->group_member_id,
             'number',
-            'message_id' => $message->id
+            'message_id'      => $message->id
         ]);
         return back();
     }

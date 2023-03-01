@@ -22,8 +22,10 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Total Group </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">9</div>
+                                    Total Group 
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalGroups }}</div>
+                                {{-- <a href="{{ route('manage.group') }}">View</a> --}}
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-user-circle fa-2x text-gray-300"></i>
@@ -57,11 +59,13 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Contact
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                    Total Contact
                                 </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">15</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $totalContacts }}</div>
+                                        {{-- <a href="{{ route('manage.member') }}">View</a> --}}
                                     </div>
                                     <div class="col">
                                         <div class="progress progress-sm mr-2">
@@ -88,7 +92,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Total SMS Sent</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalSmsSent }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -178,7 +182,7 @@
         </div>
 
         <!-- Content Row -->
-        <div class="row">
+        {{-- <div class="row">
 
             <!-- Content Column -->
             <div class="col-lg-6 mb-4">
@@ -328,7 +332,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
 
     </div>
 @endsection
