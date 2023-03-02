@@ -94,7 +94,7 @@
            <i class="fa fa-credit-card" aria-hidden="true"></i>
             <span>Account</span>
         </a>
-        <div id="collapseAccount" class="collapse" aria-labelledby="headingAccount"
+        {{-- <div id="collapseAccount" class="collapse" aria-labelledby="headingAccount"
              data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">SMS Account</h6>
@@ -103,7 +103,7 @@
                 <a class="collapse-item" href="utilities-animation.html">Animations</a>
                 <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
-        </div>
+        </div> --}}
     </li>
 
     <!-- Divider -->

@@ -14,11 +14,11 @@
                         <div class="card-body">
                             <form action="{{ route('single.message') }}" method="post">
                                 @csrf
-                                
+
                                 <div class="row">
                                     <div class="col">
                                         <div class="card">
-                                            
+
                                             {{-- <label>Choose Group</label>
 
                                             <select name="group" id="group" multiple="multiple">
@@ -26,49 +26,65 @@
                                             </select> --}}
 
                                             <label>Choose a Group:</label>
-                                            
-                                            <select name="group" id="group">
-                                                
+
+                                            <select name="group[]" id="group" class="selectpicker" multiple="multiple">
+
                                                 <option value="">Select Group</option>
-                                                
+
+                                                @if (count($messages) > 0)
+
                                                 @foreach ($messages as $grouping)
-                                                    <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}</option>
+                                                    <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}
+                                                    </option>
+                                                @endforeach
+
+                                                @endif
+
+                                            </select>
+
+                                            {{-- <select multiple="multiple" name="sports[]" id="sports">
+                                                @foreach($aSports as $aKey => $aSport)
+                                                    @foreach($aItem->sports as $aItemKey => $aItemSport)
+                                                        <option value="{{$aKey}}" @if($aKey == $aItemKey)selected="selected"@endif>{{$aSport}}</option>
+                                                    @endforeach
+                                                @endforeach
+                                                </select> --}}
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="card form-floating mb-3 mb-md-0">
+
+                                            <label>Choose a Contact:</label>
+
+                                            <select name="group_member_id" id="mySelect">
+
+                                                <option value="">Select Contact</option>
+
+                                                @foreach ($messages as $member)
+                                                    <option value="{{ $member['id'] }}">{{ $member['contact_name'] }}
+                                                    </option>
                                                 @endforeach
 
                                             </select>
                                         </div>
-                                    </div>                                
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card form-floating mb-3 mb-md-0">
-                                            
-                                            <label>Choose a Contact:</label>
-                                            
-                                            <select name="group_member_id" id="mySelect">
-                                                
-                                                <option value="">Select Contact</option>
-                                                
-                                                @foreach ($messages as $member)
-                                                    <option value="{{ $member['id'] }}">{{ $member['contact_name'] }}</option>
-                                                @endforeach
-                                                
-                                            </select>
-                                        </div>
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-floating mb-3 mb-md-0">
                                             <label>Number</label>
-                                            <input class="form-control" name="number" type="text" placeholder="Number" />
+                                            <input class="form-control" name="number" type="text"
+                                                placeholder="Number" />
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-floating mt-3 mb-md-0">
@@ -77,7 +93,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="mt-4 mb-0">
                                     <div class="d-grid">
                                         <button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -91,3 +107,38 @@
         </div>
     </main>
 @endsection
+@push('js')
+    <script>
+        // asign data a variable
+        let members = eval("{{ Js::from($members) }}");
+        console.log(members)
+
+
+
+
+        jQuery(document).ready(function() {
+            jQuery('#group').change(function(e) {
+                console.log(e.target.value)
+                let id = e.target.value;
+                jQuery.ajax({
+
+                    url: "group-members/" + id,
+                    type: 'get',
+                    success: function(result) {
+                        // console.log('hello')
+                        console.log(result)
+                        $('#mySelect').html('')
+                        $.each(result, function(i, item) {
+                            $('#mySelect').append($('<option>', {
+                                value: item.id,
+                                text: item.contact_name
+
+                                // + ' ('+ item.contact_number + ')'
+                            }));
+                        });
+                    }
+                })
+            });
+        })
+    </script>
+@endpush

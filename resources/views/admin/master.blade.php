@@ -102,30 +102,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    @stack('js')
     <script>
-        jQuery(document).ready(function() {
-            jQuery('#group').change(function(e) {
-                console.log(e.target.value)
-                let id = e.target.value;
-                jQuery.ajax({
 
-                    url: "group-members/" + id,
-                    type: 'get',
-                    success: function(result) {
-                        // console.log('hello')
-                        console.log(result)
-                        $('#mySelect').html('')
-                        $.each(result, function(i, item) {
-                            $('#mySelect').append($('<option>', {
-                                value: item.id,
-                                text: item.contact_name
-
-                                // + ' ('+ item.contact_number + ')'
-                            }));
-                        });
-                    }
-                })
-            });
             jQuery('#mul_group').multiselect().change(function(e) {
                 console.log(e.target.value)
                 let id = e.target.value;
@@ -148,7 +127,6 @@
                 //     }
                 // })
             });
-        })
     </script>
     {{-- <script>
         

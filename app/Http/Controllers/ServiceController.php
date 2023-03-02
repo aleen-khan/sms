@@ -13,9 +13,10 @@ class ServiceController extends Controller
 {
     public function singleMessage(){
         $messages = Group::where('created_by', auth()->user()->id)->get();
-        // $gid = $request->post('gid');
-        // $messages = GroupMember::where('contact_name')->get();
-        return view('admin.service.single-message', compact('messages'));
+        $members = GroupMember::whereHas('group', function ($item) {
+            $item->where('created_by', auth()->user()->id);
+        })->get();
+        return view('admin.service.single-message', compact('messages','members'));
     }
 
     public function groupMembers($id){
@@ -26,7 +27,7 @@ class ServiceController extends Controller
 
     public function multipleMessage(){
         $messages = Group::where('created_by', auth()->user()->id)->get();
-        return view('admin.service.multiple-message', compact('messages'));
+        return view('admin.service.multiple-message', compact('messages',));
     }
 
     public function messageInfo(){
