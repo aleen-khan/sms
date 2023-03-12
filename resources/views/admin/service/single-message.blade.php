@@ -18,38 +18,22 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="card">
-
-                                            {{-- <label>Choose Group</label>
-
-                                            <select name="group" id="group" multiple="multiple">
-
-                                            </select> --}}
-
+                                            
                                             <label>Choose a Group:</label>
 
-                                            <select name="group[]" id="group" class="selectpicker" multiple="multiple">
+                                            <select name="group[]" id="group">
 
                                                 <option value="">Select Group</option>
 
                                                 @if (count($messages) > 0)
 
                                                 @foreach ($messages as $grouping)
-                                                    <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}
-                                                    </option>
+                                                    <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}</option>
                                                 @endforeach
 
                                                 @endif
 
                                             </select>
-
-                                            {{-- <select multiple="multiple" name="sports[]" id="sports">
-                                                @foreach($aSports as $aKey => $aSport)
-                                                    @foreach($aItem->sports as $aItemKey => $aItemSport)
-                                                        <option value="{{$aKey}}" @if($aKey == $aItemKey)selected="selected"@endif>{{$aSport}}</option>
-                                                    @endforeach
-                                                @endforeach
-                                                </select> --}}
-
                                         </div>
                                     </div>
                                 </div>
@@ -65,8 +49,7 @@
                                                 <option value="">Select Contact</option>
 
                                                 @foreach ($messages as $member)
-                                                    <option value="{{ $member['id'] }}">{{ $member['contact_name'] }}
-                                                    </option>
+                                                    <option value="{{ $member['id'] }}">{{ $member['contact_name'] }}</option>
                                                 @endforeach
 
                                             </select>

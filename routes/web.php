@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,9 @@ Route::prefix('admin')->middleware('auth')->group(function(){
     Route::get('/edit-member/{id}', [MemberController::class, 'editMember'])->name('edit.member');
     Route::post('/update-member', [MemberController::class, 'updateMember'])->name('update.member');
     Route::get('/delete-member/{id}', [MemberController::class, 'deleteMember'])->name('delete.member');
+
+
+    Route::get('/buy-message', [AccountController::class, 'buyMessage'])->name('buy.message');
 });
 
 

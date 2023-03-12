@@ -63,4 +63,9 @@
         </div>
     </main>
 @endsection
-
+@push('js')
+    <script>
+        
+    </script>
+    
+@endpush

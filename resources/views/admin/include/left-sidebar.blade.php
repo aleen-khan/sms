@@ -89,8 +89,8 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAccount"
-           aria-expanded="true" aria-controls="collapseAccount">
+        <a class="nav-link collapsed" href="{{ route('buy.message') }}"
+           aria-expanded="true">
            <i class="fa fa-credit-card" aria-hidden="true"></i>
             <span>Account</span>
         </a>
