@@ -23,6 +23,8 @@ Route::get('/', function () {
    return view('login');
 });
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->group(function(){
@@ -59,7 +61,7 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 });
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 

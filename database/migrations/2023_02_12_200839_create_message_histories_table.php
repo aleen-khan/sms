@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('message_histories', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
+            $table->integer('number')->nullable();
             $table->integer('message_id');
             $table->timestamps();
         });

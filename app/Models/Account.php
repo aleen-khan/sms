@@ -11,6 +11,7 @@ class Account extends Model
 
     protected $fillable = [
         'user_id',
+        'add_unit',
         'remaining_sms'
     ];
 }

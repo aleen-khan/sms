@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="form-floating mb-3 mb-md-0">
                                         <label>Description</label>
-                                        <input class="form-control" name="description" type="text"  value="{{ $groups->description }}" placeholder="description" />
+                                        <input class="form-control" name="description" type="text"  value="{{ $groups->description }}" placeholder="Description" />
                                 </div>
                                 <div class="mt-4 mb-0">
                                     <div class="d-grid">

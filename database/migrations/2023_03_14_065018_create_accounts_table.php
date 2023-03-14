@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->integer('add_unit');
             $table->integer('remaining_sms');
             $table->timestamps();
         });

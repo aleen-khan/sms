@@ -16,6 +16,7 @@
                                 <div class="form-floating">
                                     <label>Choose a Group:</label>
                                     <select name="group" id="">
+                                        <option value="">Select Group</option>
                                     @foreach($groups as $team)
                                     <option value="{{ $team['id'] }}">{{ $team['group_name'] }}</option>
                                     @endforeach

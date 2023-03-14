@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
-    public function buyMessage(Request $request){
+    public function buyMessage(Request $request)
+    {
         $accounts = Account::get();
         return view('admin.account.buy-message', compact('accounts'));
     }

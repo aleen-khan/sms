@@ -18,7 +18,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="card">
-                                            
+
                                             <label>Choose a Group:</label>
 
                                             <select name="group[]" id="group">
@@ -26,11 +26,10 @@
                                                 <option value="">Select Group</option>
 
                                                 @if (count($messages) > 0)
-
-                                                @foreach ($messages as $grouping)
-                                                    <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}</option>
-                                                @endforeach
-
+                                                    @foreach ($messages as $grouping)
+                                                        <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}
+                                                        </option>
+                                                    @endforeach
                                                 @endif
 
                                             </select>
@@ -49,7 +48,8 @@
                                                 <option value="">Select Contact</option>
 
                                                 @foreach ($messages as $member)
-                                                    <option value="{{ $member['id'] }}">{{ $member['contact_name'] }}</option>
+                                                    <option value="{{ $member['id'] }}">{{ $member['contact_name'] }}
+                                                    </option>
                                                 @endforeach
 
                                             </select>
@@ -78,8 +78,8 @@
                                 </div>
 
                                 <div class="mt-4 mb-0">
-                                    <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <button type="submit" class="btn btn-primary mb-1">Send</button>
                                     </div>
                                 </div>
                             </form>
@@ -95,8 +95,6 @@
         // asign data a variable
         let members = eval("{{ Js::from($members) }}");
         console.log(members)
-
-
 
 
         jQuery(document).ready(function() {

@@ -9,10 +9,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $totalGroups = Group::count();
         $totalContacts = GroupMember::count();
         $totalSmsSent = MessageHistory::count();
-        return view('admin.home.dashboard', compact('totalGroups','totalContacts','totalSmsSent'));
+        return view('admin.home.dashboard', compact('totalGroups', 'totalContacts', 'totalSmsSent'));
     }
 }

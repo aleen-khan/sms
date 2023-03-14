@@ -11,6 +11,7 @@ class MessageHistory extends Model
 
     protected $fillable = [
         'user_id',
+        'number',
         'message_id'
     ];
 }

@@ -11,34 +11,39 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    public function singleMessage(){
+    public function singleMessage()
+    {
         $messages = Group::where('created_by', auth()->user()->id)->get();
         $members = GroupMember::whereHas('group', function ($item) {
             $item->where('created_by', auth()->user()->id);
         })->get();
-        return view('admin.service.single-message', compact('messages','members'));
+        return view('admin.service.single-message', compact('messages', 'members'));
+        return redirect(route('message.info'));
     }
 
-    public function groupMembers($id){
+    public function groupMembers($id)
+    {
         // return 'hello';
         return $messages = GroupMember::where('group_id', $id)->get();
         return view('admin.service.single-message', compact('messages'));
     }
 
-    public function multipleMessage(){
+    public function multipleMessage()
+    {
         $messages = Group::where('created_by', auth()->user()->id)->get();
         return view('admin.service.multiple-message', compact('messages',));
     }
 
-    public function messageInfo(){
-        $receivers = MessageInfo::with(['receivers.group'])->whereHas('message', function($item){
+    public function messageInfo()
+    {
+        $receivers = MessageInfo::with(['receivers.group'])->whereHas('message', function ($item) {
             $item->where('sender_id', auth()->user()->id);
-        })->get(); 
+        })->get();
         $receivers->transform(function ($item) {
             return [
-                'group'   => $item->receivers->group->group_name,
-                'name'    => $item->receivers->contact_name,
-                'number'  => $item->receivers->contact_number,
+                'group'   => $item->receivers->group->group_name ?? null,
+                'name'    => $item->receivers->contact_name ?? null,
+                'number'  => $item->number ?? $item->receivers->contact_number ?? null,
                 'message' => $item->message->body,
                 'status'  => $item->message->status,
             ];
@@ -47,17 +52,19 @@ class ServiceController extends Controller
         return view('admin.service.message-info', compact('receivers'));
     }
 
-    public function messageHistory(){
+    public function messageHistory()
+    {
         $messages = Message::get();
         return view('admin.service.message-history', compact('messages'));
     }
-    
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
+        // return $request->all();
         $message = Message::create([
             'body'            => $request->message,
-            'receiver_number' => $request->contact_number,
-            'sms_count'       => ceil(strlen($request->message)/80),
-            'total_count'     => ceil(strlen($request->message)/80) * 1,
+            'sms_count'       => ceil(strlen($request->message) / 80),
+            'total_count'     => ceil(strlen($request->message) / 80) * 1,
             'total_receiver'  => 1,
             'sender_id'       => auth()->user()->id,
             'draft'           => false,
@@ -65,12 +72,13 @@ class ServiceController extends Controller
         ]);
         // return redirect(route('message.info'));
         MessageHistory::create([
-            'user_id'    => 1,
+            'user_id'    => $request->group_member_id ?? null,
+            'number'     => $request->number ?? null,
             'message_id' => $message->id,
         ]);
         MessageInfo::create([
             'group_member_id' => $request->group_member_id,
-            'number',
+            'number'          => $request->number ?? null,
             'message_id'      => $message->id
         ]);
         return back();
