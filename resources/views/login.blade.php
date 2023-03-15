@@ -31,13 +31,15 @@
             <div class="col-md-8">
               <div class="mb-4">
               <h3>Sign In</h3>
-              <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>
+              <p class="mb-4">psum dolor Lsit amet lit. Sapiente sit aut eos consectetur adipisicing.</p>
             </div>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
               <div class="form-group first">
                 <label for="email">{{ __('Email Address') }}</label>
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input id="email" type="email" class="form-control 
+                @error('email') is-invalid 
+                @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                 @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -48,7 +50,9 @@
               </div>
               <div class="form-group last mb-4">
                 <label for="password">{{ __('Password') }}</label>
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                <input id="password" type="password" class="form-control \
+                @error('password') is-invalid 
+                @enderror" name="password" required autocomplete="current-password">
 
                     @error('password')
                         <span class="invalid-feedback" role="alert">
@@ -102,5 +106,3 @@
     <script src="{{ asset('loginAsset/js/main.js') }}"></script>
   </body>
 </html>
-
-{{-- {{ asset('adminAsset') }}/ --}}

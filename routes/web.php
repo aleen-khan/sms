@@ -7,6 +7,8 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,13 +25,17 @@ Route::get('/', function () {
    return view('login');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->group(function(){
 
     Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+
+    Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('/password', [ProfileController::class, 'password'])->name('password');
+    
     Route::get('/add-group', [GroupController::class, 'addGroup'])->name('add.group');
     Route::post('/add-group', [GroupController::class, 'store'])->name('add.group');
     Route::get('/manage-group', [GroupController::class, 'manageGroup'])->name('manage.group');
