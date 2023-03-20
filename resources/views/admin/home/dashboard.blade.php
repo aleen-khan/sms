@@ -1,4 +1,4 @@
-@extends('admin.master')
+{{-- @extends('admin.master')
 @section('title')
     SMS Dashboard
 @endsection
@@ -10,10 +10,10 @@
             <h1 class="h3 mb-0 text-gray-800">SMS Dashboard</h1>
             {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> --}}
-        </div>
+        {{-- </div> --}}
 
         <!-- Content Row -->
-        <div class="row">
+        {{-- <div class="row">
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
@@ -101,11 +101,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        {{-- </div> --}} --}}
 
         <!-- Content Row -->
 
-        <div class="row">
+        {{-- <div class="row">
 
             <!-- Area Chart -->
             <div class="col-xl-8 col-lg-7">
@@ -179,7 +179,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Content Row -->
         {{-- <div class="row">
@@ -334,5 +334,5 @@
             </div>
         </div> --}}
 
-    </div>
-@endsection
+    {{-- </div> --}}
+{{-- @endsection --}} --}}

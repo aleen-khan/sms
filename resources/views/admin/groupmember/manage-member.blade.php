@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('layouts.app')
 @section('title')
     Manage Contact
 @endsection
@@ -15,6 +15,9 @@
             <div class="card-body">
                 <div class="card-body">
                     <a class="btn btn-primary" href="{{ route('add.member') }}">Add Contact</a>
+                    @if (Session::has('msg'))
+                        <p class="alert alert-success">{{ Session::get('msg') }}</p>
+                    @endif
                     <h5>{{ session('message') }}</h5>
                 </div>
                 <div class="table-responsive">
@@ -36,12 +39,10 @@
                                 <td>{{ $contact->group->group_name }}</td>
                                 <td>
                                     <a href="{{ route('edit.member', ['id'=>$contact->id]) }}" class="btn btn-success">Edit</a>
-                                    <a href="{{ route('delete.member', ['id'=>$contact->id]) }}" class="btn btn-danger">Delete</a>
+                                    <a href="{{ route('delete.member', ['id'=>$contact->id]) }}" onclick="return confirm('Are you sure want to Delete?')" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
-
-
                         </tbody>
                     </table>
                 </div>

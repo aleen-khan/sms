@@ -1,5 +1,4 @@
-@extends('admin.master')
-
+@extends('layouts.app')
 @section('title')
     Add Contact
 @endsection
@@ -13,27 +12,28 @@
                         <div class="card-body">
                             <form action="{{ route('add.member') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-floating">
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" name="group" aria-label="Default select example">
+                                        <option selected>Select Group</option>
+                                        @foreach ( $groups as $team )
+                                        <option value="{{ $team['id'] }}">{{ $team['group_name'] }}</option>
+                                        @endforeach                                            
+                                    </select>    
+                                    
                                     <label>Choose a Group:</label>
-                                    <select name="group" id="">
-                                        <option value="">Select Group</option>
-                                    @foreach($groups as $team)
-                                    <option value="{{ $team['id'] }}">{{ $team['group_name'] }}</option>
-                                    @endforeach
-
-                                    </select>
+                                    
                                 </div>
-                                <div class="form-floating">
-                                    <label>Contact Name</label>
-                                    <input class="form-control" id="inputLastName" type="text" name="contact_name" placeholder="Contact Name" />
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" name="contact_name"  placeholder="Contact Name">
+                                    <label>Contact Name</label>                                        
                                 </div>
-                                <div class="form-floating mb-3 mb-md-0">
-                                        <label>Contact Number</label>
-                                        <input class="form-control" name="contact_number" type="text" placeholder="Contact Number" />
-                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="number" class="form-control" name="contact_number"  placeholder="Contact Number">
+                                    <label>Contact Number</label>                                        
+                                </div>                       
                                 <div class="mt-4 mb-0">
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                        <button type="submit" class="btn btn-primary btn-block">Save</button>
                                     </div>
                                 </div>
                             </form>

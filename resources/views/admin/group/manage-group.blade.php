@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('layouts.app')
 @section('title')
     Manage Group
 @endsection
@@ -15,7 +15,9 @@
             <div class="card-body">
                 <div class="card-body">
                     <a class="btn btn-primary" href="{{ route('add.group') }}">Add Group</a>
-                    <h5>{{ session('message') }}</h5>
+                    @if (Session::has('msg'))
+                        <p class="alert alert-success">{{ Session::get('msg') }}</p>
+                    @endif
                 </div>                
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -25,7 +27,6 @@
                                 <th>Group Name</th>
                                 <th>Description</th>
                                 <th>Action</th>
-
                             </tr>
                         </thead>
                         <tbody>
@@ -36,11 +37,12 @@
                                 <td>{{ $team->description }}</td>
                                 <td>
                                     <a href="{{ route('edit', ['id'=>$team->id]) }}" class="btn btn-success">Edit</a>
-                                    <a href="{{ route('delete', ['id'=>$team->id]) }}" class="btn btn-danger">Delete</a>
+                                    <a href="{{ route('delete', ['id'=>$team->id]) }}" onclick="return confirm('Are You Sure Want To Delete?')" class="btn btn-danger">Delete</a>
+
                                 </td>
                             </tr>
                            @endforeach
-
+                        
                         </tbody>
                     </table>
                 </div>

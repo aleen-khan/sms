@@ -27,6 +27,7 @@ class MemberController extends Controller
             'contact_name'   => $request->contact_name,
             'contact_number' => $request->contact_number,
         ]);
+        $request->session()->flash('msg', 'Contact Successfully Added');
         return redirect(route('manage.member'))->with('message','Saved Successfully');
     }
 
@@ -43,6 +44,7 @@ class MemberController extends Controller
             'contact_name'   => $request->contact_name,
             'contact_number' => $request->contact_number
         ]);
+        $request->session()->flash('msg', 'Contact Successfully Updated');
         return redirect(route('manage.member'));
     }
 

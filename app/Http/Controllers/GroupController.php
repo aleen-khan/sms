@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -25,6 +26,8 @@ class GroupController extends Controller
             'description' => $request->description,
             'created_by'  => auth()->user()->id,
         ]);
+        $request->session()->flash('msg', 'Group Successfully Created');
+        // $request->session()->flash('status', 'Task was successful!');
         return redirect(route('manage.group'))->with('message', 'Saved Successfully');
     }
 
@@ -42,6 +45,7 @@ class GroupController extends Controller
             'group_name'  => $request->group_name,
             'description' => $request->description
         ]);
+        $request->session()->flash('msg', 'Group Successfully Updated');
         return redirect(route('manage.group'));
     }
 
@@ -49,6 +53,6 @@ class GroupController extends Controller
     {
         $groups = Group::findOrFail($id);
         $groups->delete();
-        return redirect(route('manage.group'));
+        return redirect(route('manage.group'))->with('message', 'Delete Successfully');;
     }
 }

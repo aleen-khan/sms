@@ -25,13 +25,15 @@ Route::get('/', function () {
    return view('login');
 });
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
 
 Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->group(function(){
 
-    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+    
+    // Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
     Route::get('/password', [ProfileController::class, 'password'])->name('password');
@@ -65,9 +67,3 @@ Route::prefix('admin')->middleware('auth')->group(function(){
 
     Route::get('/buy-message', [AccountController::class, 'buyMessage'])->name('buy.message');
 });
-
-
-
-
-
-

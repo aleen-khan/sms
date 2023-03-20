@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('layouts.app')
 @section('title')
     Add Group
 @endsection
@@ -12,17 +12,17 @@
                         <div class="card-body">
                             <form action="{{ route('add.group') }}" method="post" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-floating">
-                                    <label>Group Name</label>
-                                    <input class="form-control" id="inputLastName" type="text" name="group_name" placeholder="Group Name" />
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" name="group_name"  placeholder="Group Name">
+                                    <label>Group Name</label>                                        
                                 </div>
-                                <div class="form-floating mb-3 mb-md-0">
-                                        <label>Description</label>
-                                        <textarea class="form-control" name="description" placeholder="Description"></textarea>
+                                <div class="form-floating">
+                                    <textarea class="form-control" name="description" placeholder="Description"></textarea>
+                                    <label>Description</label>
                                 </div>
                                 <div class="mt-4 mb-0">
                                     <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                        <button type="submit" class="btn btn-primary btn-block">Create</button>
                                     </div>
                                 </div>
                             </form>

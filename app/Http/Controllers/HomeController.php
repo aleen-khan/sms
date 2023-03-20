@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
+use App\Models\GroupMember;
+use App\Models\MessageHistory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalGroups = Group::count();
+        $totalContacts = GroupMember::count();
+        $totalSmsSent = MessageHistory::count();
+        return view('home', compact('totalGroups', 'totalContacts', 'totalSmsSent'));
     }
 }
