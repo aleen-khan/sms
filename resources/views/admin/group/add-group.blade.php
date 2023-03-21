@@ -13,7 +13,7 @@
                             <form action="{{ route('add.group') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" name="group_name"  placeholder="Group Name">
+                                    <input type="text" class="form-control" name="group_name" aria-level="default" placeholder="Group Name">
                                     <label>Group Name</label>                                        
                                 </div>
                                 <div class="form-floating">

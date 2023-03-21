@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Group;
 use App\Models\GroupMember;
-use App\Models\MessageHistory;
 use Illuminate\Http\Request;
+use App\Models\MessageHistory;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -26,8 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $totalGroups = Group::count();
-        $totalContacts = GroupMember::count();
+        $totalGroups = Group::where('created_by', auth()->user()->id)->count();
+        $totalContacts = GroupMember::whereHas('group', function ($item){
+            $item->where('created_by', auth()->user()->id);
+        })->count();
         $totalSmsSent = MessageHistory::count();
         return view('home', compact('totalGroups', 'totalContacts', 'totalSmsSent'));
     }

@@ -1,4 +1,3 @@
-{{-- @extends('admin.master') --}}
 @extends('layouts.app')
 @section('title')
     Password Settings
@@ -12,51 +11,59 @@
                         <h4 class="text-right">Password Settings</h4>
                     </div>
 
-                    <div class="row mt-3">
+                    <form action="{{ route('update.password') }}" method="post">
+                        @csrf
+                        <div class="row mt-3">
 
-                        <div class="col-md-12">
-                            <label class="labels">Current Password</label>
-                            <input type="text" class="form-control" placeholder="current password" value="">
-                        </div>
-                        <div class="col-md-12">
-                            <label class="labels">New Password</label>
-                            <input type="text" class="form-control" placeholder="new password" value="">
-                        </div>
-                        <div class="col-md-12">
-                            <label class="labels">Confirm New Password</label>
-                            <input type="text" class="form-control" placeholder="confirm new password" value="">
-                        </div>
-                        {{-- <div class="col-md-12">
-                            <label class="labels">Postcode</label>
-                            <input type="text" class="form-control" placeholder="enter address line 2" value="">
-                        </div>
-                        <div class="col-md-12">
-                            <label class="labels">State</label>
-                            <input type="text" class="form-control" placeholder="enter address line 2" value="">
-                        </div>
-                        <div class="col-md-12">
-                            <label class="labels">Area</label>
-                            <input type="text" class="form-control" placeholder="enter address line 2" value="">
-                        </div>
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @elseif (session('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
 
-                        <div class="col-md-12">
-                            <label class="labels">Education</label>
-                            <input type="text" class="form-control" placeholder="education" value="">
-                        </div> --}}
-                    </div>
-                    {{-- <div class="row mt-3">
-                        <div class="col-md-6">
-                            <label class="labels">Country</label>
-                            <input type="text" class="form-control" placeholder="country" value="">
+                            <div class="col-md-12">
+                                <label class="form-label">Current Password</label>
+                                <input type="password" name='current_password'
+                                    class="form-control @error('current_password') is-invalid @enderror"
+                                    id="currentPasswordInput" placeholder="current password">
+
+                                @error('current_password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label">New Password</label>
+                                <input type="password" name="new_password"
+                                    class="form-control @error('new_password') is-invalid @enderror" 
+                                    id="newPasswordInput" placeholder="new password">
+
+                                @error('new_password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label">Confirm New Password</label>
+                                <input type="password" name="confirm_new_password"
+                                    class="form-control @error('confirm_new_password') is-invalid @enderror"
+                                    id="confirmNewPasswordInput" placeholder="confirm new password">
+
+                                @error('confirm_new_password')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="mt-5 text-center">
+                                <button class="btn btn-primary profile-button" type="submit">Save Password</button>
+                            </div>
+
                         </div>
-                        <div class="col-md-6">
-                            <label class="labels">State/Region</label>
-                            <input type="text" class="form-control" value="" placeholder="state">
-                        </div>
-                    </div> --}}
-                    <div class="mt-5 text-center">
-                        <button class="btn btn-primary profile-button" type="button">Save Password</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

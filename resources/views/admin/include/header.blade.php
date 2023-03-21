@@ -20,6 +20,7 @@
                             </div>
                         </div>
                     </form>
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -47,8 +48,6 @@
                             </div>
                         </li>
 
-
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <li class="nav-item dropdown no-arrow">
@@ -72,35 +71,30 @@
                                     src="{{ asset('adminAsset') }}/img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <ul class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{{ route('profile') }}">
-                                    <i class="fas fa-user fa-sm fa-fw text-gray-400"></i>
+
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="{{ route('password') }}">
-                                    <i class="fas fa-cogs fa-sm fa-fw text-gray-400"></i>
+                                <a class="dropdown-item" href="{{ route('change.password') }}">
+
                                     Password Settings
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}" 
-                                    
+                                <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw text-gray-400"></i>
+
                                     {{ __('Logout') }}
 
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
-
                             </ul>
                         @endguest
                         </li>
-
                     </ul>
-
                 </nav>
                 <!-- End of Topbar -->
                 {{-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
