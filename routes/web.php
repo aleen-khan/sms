@@ -29,13 +29,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::prefix('admin')->middleware('auth')->group(function(){
+Route::prefix('dashboard')->middleware('auth')->group(function(){
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
     
     // Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
     Route::get('/profile',          [ProfileController::class, 'profile'       ])->name('profile');
+    Route::get('/edit-profile',     [ProfileController::class, 'editProfile'   ])->name('edit.profile');
     Route::get('/change-password',  [ProfileController::class, 'changePassword'])->name('change.password');
     Route::post('/update-password', [ProfileController::class, 'updatePassword'])->name('update.password');
     

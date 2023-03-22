@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
     public function profile(){
-        return view('admin.profile.profile');
+        $id = Auth::user()->id;
+        $users = User::find($id);
+        return view('admin.profile.profile', compact('users'));
+    }
+
+    public function editProfile(){
+        return view('admin.profile.edit-profile');
     }
 
     public function changePassword()

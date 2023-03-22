@@ -74,7 +74,7 @@
                 </span> 
               </div>
 
-              <input type="submit" value="Register" class="btn btn-block btn-primary">
+              <input type="submit" value="{{ __('Register') }}" class="btn btn-block btn-primary">
               <input type="submit" value="{{ __('Login') }}" class="btn btn-block btn-success">
 
 
