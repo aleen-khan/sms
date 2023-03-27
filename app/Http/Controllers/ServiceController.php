@@ -60,6 +60,9 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([            
+            'body' => 'required',
+        ]);
         // return $request->all();
         $message = Message::create([
             'body'            => $request->message,

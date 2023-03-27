@@ -14,7 +14,9 @@
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
-
+            @if (Session::has('msg'))
+            <p class="alert alert-success">{{ Session::get('msg') }}</p>
+        @endif
             <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
                     <div class="card">
@@ -55,7 +57,7 @@
                                     <h6 class="mb-0">Mobile</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    01911155454
+                                    {{ $users->phone }}
                                 </div>
                             </div>
                             <hr>
@@ -64,7 +66,7 @@
                                     <h6 class="mb-0">Address</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    Bay Area, San Francisco, CA
+                                    {{ $users->address }}
                                 </div>
                             </div>
                             <hr>

@@ -38,16 +38,16 @@
                                         @endforeach
                                     </select>
 
-                                    <label>Choose a Group:</label>
+                                    <label>Choose a Contact:</label>
 
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <label>Number</label>
                                     <input type="number" class="form-control" name="number" placeholder="Number">
+                                    <label>Number</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <label>SMS Body</label>
                                     <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                                    <label>SMS Body</label>
                                 </div>
                                 <div class="mt-4 mb-0">
                                     <div class="form-floating mb-3 mb-md-0">

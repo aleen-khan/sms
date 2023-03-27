@@ -6,6 +6,7 @@ use App\Models\Group;
 use App\Models\GroupMember;
 use Illuminate\Http\Request;
 use App\Models\MessageHistory;
+use App\Models\MessageInfo;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 

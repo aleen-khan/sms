@@ -22,6 +22,11 @@ class MemberController extends Controller
     }
 
     public function store(Request $request){
+       
+        $request->validate([            
+            'contact_name' => 'required|max:255',
+            'contact_number' => 'required|max:15',
+        ]);
         $members = GroupMember::create([
             'group_id'       => $request->group,
             'contact_name'   => $request->contact_name,
@@ -39,6 +44,11 @@ class MemberController extends Controller
 
 
     public function updateMember(Request $request){
+
+        $request->validate([
+            'contact_name' => 'required|max:255',
+            'contact_number' => 'required|max:15',
+        ]);
         $members = GroupMember::find($request->id);
         $members->update([
             'contact_name'   => $request->contact_name,
