@@ -8,17 +8,16 @@
         <!-- Page Heading -->
         <h1 class="h3 mb-2 text-gray-800">Tables</h1>
 
-
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3"></div>
             <div class="card-body">
-                <div class="card-body">
-                    <a class="btn btn-primary" href="{{ route('add.group') }}">Add Group</a>
-                    @if (Session::has('msg'))
-                        <p class="alert alert-success">{{ Session::get('msg') }}</p>
-                    @endif
-                </div>                
+                <a class="btn btn-primary" href="{{ route('add.group') }}">Add Group</a>
+                <hr>
+                @if (Session::has('msg'))
+                    <p class="alert alert-success">{{ Session::get('msg') }}</p>
+                @endif
+
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -31,18 +30,17 @@
                         </thead>
                         <tbody>
 
-                            @foreach ( $groups as $team )
-                            <tr>
-                                <td>{{ $team->group_name }}</td>
-                                <td>{{ $team->description }}</td>
-                                <td>
-                                    <a href="{{ route('edit', ['id'=>$team->id]) }}" class="btn btn-success">Edit</a>
-                                    <a href="{{ route('delete', ['id'=>$team->id]) }}" onclick="return confirm('Are You Sure Want To Delete?')" class="btn btn-danger">Delete</a>
+                            @foreach ($groups as $team)
+                                <tr>
+                                    <td>{{ $team->group_name }}</td>
+                                    <td>{{ $team->description }}</td>
+                                    <td>
+                                        <a href="{{ route('edit', ['id' => $team->id]) }}" class="btn btn-success">Edit</a>
+                                        <a href="{{ route('delete', ['id' => $team->id]) }}"
+                                            onclick="return confirm('Are You Sure Want To Delete?')"
+                                            class="btn btn-danger">Delete</a>
+                            @endforeach
 
-                                </td>
-                            </tr>
-                           @endforeach
-                        
                         </tbody>
                     </table>
                 </div>
@@ -50,3 +48,10 @@
         </div>
     </div>
 @endsection
+@push('js')
+    <script>
+        $(document).ready(function() {
+            $('.alert-success').fadeIn().delay(2000).fadeOut();
+        });
+    </script>
+@endpush

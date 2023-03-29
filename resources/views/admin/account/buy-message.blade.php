@@ -35,14 +35,12 @@
                                     <h4>Buy SMS</h4>
                                 </div>
                                 <div class="form-floating mb-3 mb-md-0">
-
                                     <p>Please use only
                                         <code>numeric</code> number not
                                         <code>decimal</code> number. Example: Accepted:
                                         <code>1, 2, 3</code> Not Accepted:
                                         <code>0.025, 1.025, 1.00, 1.5</code>
                                     </p>
-
                                     <div class="form-floating mb-3 mb-md-0">
                                         <div class="mb-1">
                                             <label for="add_unit" class="form-label required">Per unit price = 0.1 $</label>

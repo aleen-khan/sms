@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Login
+@endsection
 @section('content')
     <div class="content">
         <div class="container">
@@ -56,10 +58,10 @@
                                         <div class="control__indicator"></div>
                                     </label>
                                     <span class="ml-auto">
-                                        {{-- @if (Route::has('password.request'))
+                                        @if (Route::has('password.request'))
                                             <a href="{{ route('password.request') }}"
                                                 class="forgot-pass">{{ __('Forgot Your Password?') }}</a>
-                                        @endif --}}
+                                        @endif
                                     </span>
                                 </div>
 
@@ -68,22 +70,11 @@
                                         <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     @endif
                                 </button>
-                                
+
                                 <input type="submit" value="{{ __('Login') }}" class="btn btn-block btn-success">
 
-                                {{-- <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
-                                <div class="social-login">
-                                    <a href="#" class="facebook">
-                                        <span class="icon-facebook mr-3"></span>
-                                    </a>
-                                    <a href="#" class="twitter">
-                                        <span class="icon-twitter mr-3"></span>
-                                    </a>
-                                    <a href="#" class="google">
-                                        <span class="icon-google mr-3"></span>
-                                    </a>
-                                </div> --}}
-                            
+
+
                             </form>
                         </div>
                     </div>

@@ -62,6 +62,6 @@ class GroupController extends Controller
     {
         $groups = Group::findOrFail($id);
         $groups->delete();
-        return redirect(route('manage.group'))->with('message', 'Delete Successfully');;
+        return redirect(route('manage.group'))->with('msg', 'Delete Successfully');
     }
 }

@@ -25,19 +25,19 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>      
+                        <tbody>
                             @if (count($receivers) > 0)
-                            @foreach($receivers as $receiver)
-                            <tr>
-                                <td>{{ $receiver['group'] }}</td>
-                                <td>{{ $receiver['name'] }}</td>
-                                <td>{{ $receiver['number'] }}</td>
-                                <td>{{ $receiver['message'] }}</td>
-                                <td>{{ $receiver['status'] }}</td>
-                            </tr>   
-                            @endforeach
-                            @endif                  
-                                             
+                                @foreach ($receivers as $receiver)
+                                    <tr>
+                                        <td>{{ $receiver['group'] }}</td>
+                                        <td>{{ $receiver['name'] }}</td>
+                                        <td>{{ $receiver['number'] }}</td>
+                                        <td>{{ $receiver['message'] }}</td>
+                                        <td>{{ $receiver['status'] }}</td>
+                                    </tr>
+                                @endforeach
+                            @endif
+
                         </tbody>
                     </table>
                 </div>

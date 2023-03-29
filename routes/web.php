@@ -22,17 +22,17 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-   return view('login');
+    return view('login');
 });
 
 
 
 Auth::routes();
 
-Route::prefix('dashboard')->middleware('auth')->group(function(){
+Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
-    
+
     // Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
@@ -40,27 +40,27 @@ Route::prefix('dashboard')->middleware('auth')->group(function(){
     Route::post('/edit-profile', [ProfileController::class, 'updateProfile'])->name('edit.profile');
     Route::get('/change-password', [ProfileController::class, 'changePassword'])->name('change.password');
     Route::post('/update-password', [ProfileController::class, 'updatePassword'])->name('update.password');
-    
-    
+
+
     Route::get('/add-group', [GroupController::class, 'addGroup'])->name('add.group');
     Route::post('/add-group', [GroupController::class, 'store'])->name('add.group');
     Route::get('/manage-group', [GroupController::class, 'manageGroup'])->name('manage.group');
     Route::get('/edit/{id}', [GroupController::class, 'edit'])->name('edit');
     Route::post('/update-group', [GroupController::class, 'updateGroup'])->name('update.group');
     Route::get('/delete/{id}', [GroupController::class, 'delete'])->name('delete');
-    
-    
+
+
     Route::get('/single-message', [ServiceController::class, 'singleMessage'])->name('single.message');
     Route::get('/multiple-message', [ServiceController::class, 'multipleMessage'])->name('multiple.message');
     Route::post('/single-message', [ServiceController::class, 'store'])->name('single-message');
     Route::post('/multiple-message', [ServiceController::class, 'store'])->name('multiple-message');
     Route::get('/group-members/{id}', [ServiceController::class, 'groupMembers'])->name('group.members');
-    
-    
+
+
     Route::get('/message-history', [ServiceController::class, 'messageHistory'])->name('message.history');
     Route::get('/message-info', [ServiceController::class, 'messageInfo'])->name('message.info');
 
-    
+
     Route::get('/add-member', [MemberController::class, 'addMember'])->name('add.member');
     Route::get('/manage-member', [MemberController::class, 'manageMember'])->name('manage.member');
     Route::post('/add-member', [MemberController::class, 'store'])->name('add.member');

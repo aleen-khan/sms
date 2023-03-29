@@ -33,7 +33,7 @@ class MemberController extends Controller
             'contact_number' => $request->contact_number,
         ]);
         $request->session()->flash('msg', 'Contact Successfully Added');
-        return redirect(route('manage.member'))->with('message','Saved Successfully');
+        return redirect(route('manage.member'));
     }
 
     public function editMember($id){
@@ -61,60 +61,6 @@ class MemberController extends Controller
     public function deleteMember($id){
         $members = GroupMember::findOrFail($id);
         $members->delete();
-        return redirect(route('manage.member'));
+        return redirect(route('manage.member'))->with('msg', 'Delete Successfully');
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// class ServiceController extends Controller
-// {
-//     public function sendSms(){
-//         return view('admin.service.sendSms');
-//     }
-
-//     public function serviceHistory(){
-//         $messages = Message::get();
-//         return view('admin.service.serviceHistory', compact('messages'));
-//     }
-//     public function store(Request $request){
-//         $message = Message::create([
-//             'body' => $request->message,
-//             'sms_count' => ceil(strlen($request->message)/80),
-//             'total_receiver' => 1,
-//             'total_count' => ceil(strlen($request->message)/80) * 1,
-//             'status' => 'pending',
-//             'sender_id' => '01911155454',
-//             'draft' => false,
-//         ]);
-//         MessageHistory::create([
-//             'user_id' => 1,
-//             'message_id' => $message->id,
-//         ]);
-//         return back();
-//     }
-// }
-

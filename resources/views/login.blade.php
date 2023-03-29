@@ -85,30 +85,15 @@
                                         @endif
                                     </span>
                                 </div>
-                                {{-- @if (Route::has('register'))
-                                    <a class="" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                @endif --}}
+
                                 <button class="btn btn-block btn-primary">
                                     @if (Route::has('register'))
-                                        <a class="" href="{{ route('register') }}">{{ ('Register') }}</a>
+                                        <a class="" href="{{ route('register') }}">{{ 'Register' }}</a>
                                     @endif
                                 </button>
 
                                 <input type="submit" value="{{ __('Login') }}" class="btn btn-block btn-success">
 
-                                {{-- <span class="d-block text-left my-4 text-muted">&mdash; or login with &mdash;</span>
-                                <div class="social-login">
-                                    <a href="#" class="facebook">
-                                        <span class="icon-facebook mr-3"></span>
-                                    </a>
-                                    <a href="#" class="twitter">
-                                        <span class="icon-twitter mr-3"></span>
-                                    </a>
-                                    <a href="#" class="google">
-                                        <span class="icon-google mr-3"></span>
-                                    </a>
-                                </div> --}}
-                            
                             </form>
                         </div>
                     </div>

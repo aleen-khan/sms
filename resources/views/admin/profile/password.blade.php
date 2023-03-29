@@ -39,8 +39,8 @@
                             <div class="col-md-12">
                                 <label class="form-label">New Password</label>
                                 <input type="password" name="new_password"
-                                    class="form-control @error('new_password') is-invalid @enderror" 
-                                    id="newPasswordInput" placeholder="new password">
+                                    class="form-control @error('new_password') is-invalid @enderror" id="newPasswordInput"
+                                    placeholder="new password">
 
                                 @error('new_password')
                                     <span class="text-danger">{{ $message }}</span>

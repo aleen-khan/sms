@@ -19,17 +19,17 @@
                         <thead>
                             <tr>
                                 <th>Number</th>
-                                <th>Message</th>                                
+                                <th>Message</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                        @foreach ( $messages as $chat )
-                            <tr>
-                                <td>{{ $chat->sender_id }}</td>
-                                <td>{{ $chat->body }}</td>                                
-                            </tr>
-                        @endforeach
+                            @foreach ($messages as $chat)
+                                <tr>
+                                    <td>{{ $chat->sender_id }}</td>
+                                    <td>{{ $chat->body }}</td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>

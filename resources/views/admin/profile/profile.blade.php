@@ -9,14 +9,14 @@
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb" class="main-breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>                    
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Profile</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->
             @if (Session::has('msg'))
-            <p class="alert alert-success">{{ Session::get('msg') }}</p>
-        @endif
+                <p class="alert alert-success">{{ Session::get('msg') }}</p>
+            @endif
             <div class="row gutters-sm">
                 <div class="col-md-4 mb-3">
                     <div class="card">
@@ -72,8 +72,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <a class="btn btn-info " 
-                                        href="{{ route('edit.profile') }}">Edit</a>
+                                    <a class="btn btn-info " href="{{ route('edit.profile') }}">Edit</a>
                                 </div>
                             </div>
                         </div>
