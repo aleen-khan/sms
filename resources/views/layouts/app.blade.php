@@ -2,7 +2,6 @@
 <html lang="">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
@@ -17,13 +16,10 @@
 
     <link rel="stylesheet" href="{{ asset('loginAsset/css/owl.carousel.min.css') }}">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('loginAsset/css/bootstrap.min.css') }}">
 
-    <!-- Style -->
     <link rel="stylesheet" href="{{ asset('loginAsset/css/style.css') }}">
 
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
@@ -49,8 +45,6 @@
 
 <body id="page-top">
 
-
-    <!-- Master File Body -->
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -143,21 +137,11 @@
     </a>
     <!-- End Master File Body -->
 
-    <!-- Master File Script -->
-    <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('adminAsset') }}/vendor/jquery/jquery.min.js"></script>
     <script src="{{ asset('adminAsset') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
     <script src="{{ asset('adminAsset') }}/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
     <script src="{{ asset('adminAsset') }}/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
     <script src="{{ asset('adminAsset') }}/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
     <script src="{{ asset('adminAsset') }}/js/demo/chart-area-demo.js"></script>
     <script src="{{ asset('adminAsset') }}/js/demo/chart-pie-demo.js"></script>
 
@@ -175,7 +159,6 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @stack('js')
-    <!-- End Master File Script -->
 
 </body>
 

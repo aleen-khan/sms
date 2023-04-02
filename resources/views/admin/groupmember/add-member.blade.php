@@ -15,25 +15,40 @@
                             <form action="{{ route('add.member') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
+                                    @if (session('status'))
+                                        <div class="alert alert-success" role="alert">
+                                            {{ session('status') }}
+                                        </div>
+                                    @elseif (session('error'))
+                                        <div class="alert alert-danger" role="alert">
+                                            {{ session('error') }}
+                                        </div>
+                                    @endif
                                     <label>Choose a Group:</label>
-                                    
+
                                     <select class="form-select" name="group" aria-label="Default select example">
                                         <option selected>Select Group</option>
                                         @foreach ($groups as $team)
                                             <option value="{{ $team['id'] }}">{{ $team['group_name'] }}</option>
                                         @endforeach
                                     </select>
-                                    
+
                                 </div>
                                 <div class="mb-3">
                                     <label>Contact Name</label>
-                                    <input type="text" class="form-control" name="contact_name"
-                                        placeholder="Contact Name">                                    
+                                    <input type="text" class="form-control @error('contact_name') is-invalid @enderror"
+                                        name="contact_name" placeholder="Contact Name">
+                                    @error('contact_name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label>Contact Number</label>
-                                    <input type="number" class="form-control" name="contact_number"
-                                        placeholder="Contact Number">                                    
+                                    <input type="number" class="form-control @error('contact_number') is-invalid @enderror"
+                                        name="contact_number" placeholder="Contact Number">
+                                    @error('contact_number')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mt-2 mb-0">
                                     <div class="form-floating mb-3 mb-md-0">

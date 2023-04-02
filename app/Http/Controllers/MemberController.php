@@ -45,7 +45,7 @@ class MemberController extends Controller
     public function updateMember(Request $request){
 
         $request->validate([
-            'contact_name' => 'required|max:255',
+            'contact_name' => 'required|max:20',
             'contact_number' => 'required|max:15',
         ]);
         $members = GroupMember::find($request->id);
@@ -61,5 +61,19 @@ class MemberController extends Controller
         $members = GroupMember::findOrFail($id);
         $members->delete();
         return redirect(route('manage.member'))->with('msg', 'Delete Successfully');
+    }
+
+    public function search(Request $request){
+        // return $request->all();
+        if($request->search){
+
+            $searchContacts = GroupMember::with('group')->where('contact_name', 'LIKE', '%'.$request->search.'%')->paginate();
+            return view('admin.search.search', compact('searchContacts'));
+        
+        }else{
+
+            return redirect()->back()->with('msg', 'No Result Found!');
+
+        }
     }
 }

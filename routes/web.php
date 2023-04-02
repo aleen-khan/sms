@@ -67,6 +67,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/edit-member/{id}', [MemberController::class, 'editMember'])->name('edit.member');
     Route::post('/update-member', [MemberController::class, 'updateMember'])->name('update.member');
     Route::get('/delete-member/{id}', [MemberController::class, 'deleteMember'])->name('delete.member');
+    Route::get('/search', [MemberController::class, 'search'])->name('search');
 
 
     Route::get('/buy-message', [AccountController::class, 'buyMessage'])->name('buy.message');
