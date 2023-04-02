@@ -7,7 +7,7 @@
     <main>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-7">
+                <div class="col-lg-6">
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
                         <div class="card-header">
                             <h3 class="text-center font-weight-light my-4">Create Message</h3>
@@ -15,7 +15,9 @@
                         <div class="card-body">
                             <form action="{{ route('single.message') }}" method="post">
                                 @csrf
-                                <div class="form-floating mb-3">
+                                <div class="mb-3">
+                                    <label>Choose a Group:</label>
+                                    
                                     <select class="form-select" name="group[]" id="group"
                                         aria-label="Default select example">
                                         <option selected>Select Group</option>
@@ -26,10 +28,10 @@
                                         @endif
                                     </select>
 
-                                    <label>Choose a Group:</label>
-
                                 </div>
-                                <div class="form-floating mb-3">
+                                <div class="mb-3">
+                                    <label>Choose a Contact:</label>
+                                    
                                     <select class="form-select" name="group_member_id" id="mySelect"
                                         aria-label="Default select example">
                                         <option selected>Select Contact</option>
@@ -38,19 +40,17 @@
                                         @endforeach
                                     </select>
 
-                                    <label>Choose a Contact:</label>
-
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <input type="number" class="form-control" name="number" placeholder="Number">
+                                <div class="mb-3">
                                     <label>Number</label>
+                                    <input type="number" class="form-control" name="number" placeholder="Number">                                    
                                 </div>
-                                <div class="form-floating mb-3">
-                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                                <div class="mb-3">
                                     <label>SMS Body</label>
+                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>                                    
                                 </div>
-                                <div class="mt-4 mb-0">
-                                    <div class="form-floating mb-3 mb-md-0">
+                                <div class="mt-2 mb-0">
+                                    <div class="mb-3 mb-md-0">
                                         <button type="submit" class="btn btn-primary mb-1">Send</button>
                                     </div>
                                 </div>

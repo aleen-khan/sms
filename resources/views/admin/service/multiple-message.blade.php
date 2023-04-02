@@ -7,7 +7,7 @@
     <main>
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-7">
+                <div class="col-lg-6">
                     <div class="card shadow-lg border-0 rounded-lg mt-5">
                         <div class="card-header">
                             <h3 class="text-center font-weight-light my-4">Create Message</h3>
@@ -15,44 +15,25 @@
                         <div class="card-body">
                             <form action="{{ route('multiple.message') }}" method="post">
                                 @csrf
+                                <div class="mb-3">
+                                    <label>Choose Multiple Group:</label>
 
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card">
+                                    <select class="form-select" name="mul_group[]" id="mul_group">
+                                        @if (count($messages) > 0)
+                                            @foreach ($messages as $grouping)
+                                                <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
 
-                                            <label>Choose Multiple Group:</label>
-
-                                            <select name="mul_group[]" id="mul_group">
-
-
-                                                @if (count($messages) > 0)
-                                                    @foreach ($messages as $grouping)
-                                                        <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}
-                                                        </option>
-                                                    @endforeach
-                                                @endif
-
-                                            </select>
-
-
-
-                                        </div>
-                                    </div>
                                 </div>
-
-
-
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-floating mt-3 mb-md-0">
-                                            <label>SMS Body</label>
-                                            <textarea class="form-control" name="message" type="textarea" placeholder="Message"></textarea>
-                                        </div>
-                                    </div>
+                                <div class="mb-3">
+                                    <label>SMS Body</label>
+                                    <textarea class="form-control" name="message" type="textarea" placeholder="Message"></textarea>
                                 </div>
-                                <div class="mt-4 mb-0">
-                                    <div class="d-grid">
-                                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                <div class="mt-2 mb-0">
+                                    <div class="mb-3 mb-md-0">
+                                        <button type="submit" class="btn btn-primary mb-1">Send</button>
                                     </div>
                                 </div>
                             </form>

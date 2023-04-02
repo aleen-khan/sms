@@ -49,6 +49,19 @@
     </div>
 @endsection
 @push('js')
+    
+    @if (Session::has('msg'))
+        <script>
+            toastr.options = {
+                "progressBar": true,
+                "closeButton": true,
+            }
+            toastr.success("{{ Session::get('msg') }}", 'Success!', {
+                timeOut: 2000
+            });
+        </script>
+    @endif
+
     <script>
         $(document).ready(function() {
             $('.alert-success').fadeIn().delay(2000).fadeOut();

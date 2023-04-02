@@ -31,9 +31,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 
-
     <!-- Master File Link -->
-    <!-- Custom fonts for this template-->
     <link href="{{ asset('adminAsset') }}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -44,7 +42,6 @@
 
     <!-- Custom styles for this page -->
     <link href="{{ asset('adminAsset') }}/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <!-- End Master File Link -->
 
     <title>@yield('title')</title>
 
@@ -74,6 +71,38 @@
                 <!-- Begin Page Content -->
                 @yield('content')
 
+                <style>
+                    .toast {
+                        background-color: #030303;
+                    }
+
+                    .toast-success {
+                        background-color: #51A351;
+                    }
+
+                    .toast-error {
+                        background-color: #BD362F;
+                    }
+
+                    .toast-info {
+                        background-color: #2F96B4;
+                    }
+
+                    .toast-warning {
+                        background-color: #F89406;
+                    }
+
+                    .toast-progress {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        height: 4px;
+                        background-color: #000000;
+                        opacity: 0.4;
+                        -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+                        filter: alpha(opacity=40);
+                    }
+                </style>
 
             </div>
             <!-- End of Main Content -->
@@ -89,7 +118,7 @@
     <!-- End of Page Wrapper -->
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    {{-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -106,7 +135,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
