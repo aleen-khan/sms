@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->text('body');            
+            $table->text('message');            
             $table->integer('sms_count',);
             $table->integer('total_count',);            
             $table->integer('sender_id',);

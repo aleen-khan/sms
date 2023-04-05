@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('message_infos', function (Blueprint $table) {
             $table->id();
-            $table->integer('group_member_id');
-            $table->integer('number');            
+            $table->integer('group_member_id')->nullable();
+            $table->integer('number')->nullable();            
             $table->integer('message_id');
             $table->timestamps();
         });

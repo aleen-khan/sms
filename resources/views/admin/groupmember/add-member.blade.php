@@ -12,27 +12,36 @@
                             <h3 class="text-center font-weight-light my-4">Add Contact</h3>
                         </div>
                         <div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @elseif (session('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <form action="{{ route('add.member') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    @if (session('status'))
-                                        <div class="alert alert-success" role="alert">
-                                            {{ session('status') }}
-                                        </div>
-                                    @elseif (session('error'))
-                                        <div class="alert alert-danger" role="alert">
-                                            {{ session('error') }}
-                                        </div>
-                                    @endif
+
                                     <label>Choose a Group:</label>
 
-                                    <select class="form-select" name="group" aria-label="Default select example">
+                                    <select class="form-select @error('group_name') is-invalid @enderror" name="group"
+                                        aria-label="Default select example">
+                                        
                                         <option selected>Select Group</option>
+                                        
                                         @foreach ($groups as $team)
                                             <option value="{{ $team['id'] }}">{{ $team['group_name'] }}</option>
                                         @endforeach
+                                    
                                     </select>
-
+                                    
+                                    @error('group_name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                
                                 </div>
                                 <div class="mb-3">
                                     <label>Contact Name</label>

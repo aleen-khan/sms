@@ -44,7 +44,7 @@ class ServiceController extends Controller
                 'group'   => $item->receivers->group->group_name ?? null,
                 'name'    => $item->receivers->contact_name ?? null,
                 'number'  => $item->number ?? $item->receivers->contact_number ?? null,
-                'message' => $item->message->body,
+                'message' => $item->message->message,
                 'status'  => $item->message->status,
             ];
         });
@@ -60,16 +60,17 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
+        // return $request->all();
         $request->validate([            
-            'body' => 'required',
+            'message' => 'required',
         ]);
         // return $request->all();
         $message = Message::create([
-            'body'            => $request->message,
+            'message'         => $request->message,
             'sms_count'       => ceil(strlen($request->message) / 80),
             'total_count'     => ceil(strlen($request->message) / 80) * 1,
             'total_receiver'  => 1,
-            'sender_id'       => auth()->user()->id,
+            'sender_id'       => auth()->user()->id ?? null,
             'draft'           => false,
             'status'          => 'pending',
         ]);

@@ -1,4 +1,3 @@
-{{-- @extends('admin.master') --}}
 @extends('layouts.app')
 @section('title')
     Send Sms
@@ -13,11 +12,20 @@
                             <h3 class="text-center font-weight-light my-4">Create Message</h3>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('single.message') }}" method="post">
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @elseif (session('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            <form action="{{ route('single-message') }}" method="post">
                                 @csrf
                                 <div class="mb-3">
                                     <label>Choose a Group:</label>
-                                    
+
                                     <select class="form-select" name="group[]" id="group"
                                         aria-label="Default select example">
                                         <option selected>Select Group</option>
@@ -31,7 +39,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label>Choose a Contact:</label>
-                                    
+
                                     <select class="form-select" name="group_member_id" id="mySelect"
                                         aria-label="Default select example">
                                         <option selected>Select Contact</option>
@@ -43,11 +51,14 @@
                                 </div>
                                 <div class="mb-3">
                                     <label>Number</label>
-                                    <input type="number" class="form-control" name="number" placeholder="Number">                                    
+                                    <input type="number" class="form-control" name="number" placeholder="Number">
                                 </div>
                                 <div class="mb-3">
                                     <label>SMS Body</label>
-                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>                                    
+                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                                    @error('message')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mt-2 mb-0">
                                     <div class="mb-3 mb-md-0">
@@ -64,7 +75,6 @@
 @endsection
 @push('js')
     <script>
-        // asign data a variable
         let members = eval("{{ Js::from($members) }}");
         console.log(members)
 

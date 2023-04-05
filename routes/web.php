@@ -53,7 +53,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function () {
     Route::get('/single-message', [ServiceController::class, 'singleMessage'])->name('single.message');
     Route::get('/multiple-message', [ServiceController::class, 'multipleMessage'])->name('multiple.message');
     Route::post('/single-message', [ServiceController::class, 'store'])->name('single-message');
-    Route::post('/multiple-message', [ServiceController::class, 'store'])->name('multiple-message');
+    // Route::post('/multiple-message', [ServiceController::class, 'store'])->name('multiple-message');
     Route::get('/group-members/{id}', [ServiceController::class, 'groupMembers'])->name('group.members');
 
 
