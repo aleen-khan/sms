@@ -61,8 +61,9 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         // return $request->all();
-        $request->validate([            
+        $request->validate([
             'message' => 'required',
+            // 'number' => 'required'
         ]);
         // return $request->all();
         $message = Message::create([
@@ -85,6 +86,7 @@ class ServiceController extends Controller
             'number'          => $request->number ?? null,
             'message_id'      => $message->id
         ]);
-        return back();
+        return back()->with('msg', 'Sent Successfully');
+        return redirect(route('message.info'))->with('msg', 'Sent Successfully');
     }
 }

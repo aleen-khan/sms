@@ -27,21 +27,21 @@
 
                                     <label>Choose a Group:</label>
 
-                                    <select class="form-select @error('group_name') is-invalid @enderror" name="group"
+                                    <select class="form-select @error('group_id') is-invalid @enderror" name="group_id"
                                         aria-label="Default select example">
-                                        
-                                        <option selected>Select Group</option>
-                                        
+
+                                        <option  value="" selected>Select Group</option>
+
                                         @foreach ($groups as $team)
                                             <option value="{{ $team['id'] }}">{{ $team['group_name'] }}</option>
                                         @endforeach
-                                    
+
                                     </select>
-                                    
-                                    @error('group_name')
+
+                                    @error('group_id')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
-                                
+
                                 </div>
                                 <div class="mb-3">
                                     <label>Contact Name</label>

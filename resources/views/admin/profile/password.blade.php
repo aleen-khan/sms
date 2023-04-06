@@ -14,6 +14,9 @@
                     <form action="{{ route('update.password') }}" method="post">
                         @csrf
                         <div class="row mt-3">
+                            @if (Session::has('msg'))
+                                <p class="alert alert-success">{{ Session::get('msg') }}</p>
+                            @endif
 
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
@@ -69,3 +72,23 @@
         </div>
     </div>
 @endsection
+@push('js')
+
+    @if (Session::has('msg'))
+        <script>
+            toastr.options = {
+                "progressBar": true,
+                "closeButton": true,
+            }
+            toastr.success("{{ Session::get('msg') }}", 'Success!', {
+                timeOut: 3000
+            });
+        </script>
+    @endif
+
+    <script>
+        $(document).ready(function() {
+            $('.alert-success').fadeIn().delay(2000).fadeOut();
+        });
+    </script>
+@endpush

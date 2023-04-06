@@ -49,7 +49,7 @@
     </div>
 @endsection
 @push('js')
-    
+
     @if (Session::has('msg'))
         <script>
             toastr.options = {

@@ -9,35 +9,23 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
-    public function profile(){
+    public function profile()
+    {
         $id = Auth::user()->id;
         $users = User::find($id);
         return view('admin.profile.profile', compact('users'));
     }
 
-    public function editProfile(){        
+    public function editProfile()
+    {
         return view('admin.profile.edit-profile');
     }
 
-    // public function updateProfile(Request $request){
-    //     // return ($request->all());
-    //     // $id = Auth::user()->id;
-    //     $user = User::findOrFail($request->id);
-    //     return ($request->all());
-    //     $user->update([
-    //         'name' => $request->name,
-    //         'phone' => $request->phone,
-    //         'name' => $request->address,
-    //     ]);
-        
-    //     $request->session()->flash('msg', 'Profile Successfully Updated');
-    //     return redirect(route('edit.profile'));
-    // }
-
-    public function updateProfile(Request $request){
+    public function updateProfile(Request $request)
+    {
         // return ($request->all());
         $request->validate([
-            'name' => 'required|max:255',        
+            'name' => 'required|max:25',
         ]);
 
         $id = Auth::user()->id;
@@ -45,11 +33,11 @@ class ProfileController extends Controller
         $users->name = $request->input('name');
         $users->phone = $request->input('phone');
         $users->address = $request->input('address');
-        $users->update();        
+        $users->update();
         $request->session()->flash('msg', 'Profile Successfully Updated');
         return redirect(route('profile'));
     }
-    
+
     public function changePassword()
     {
         return view('admin.profile.password');
@@ -63,7 +51,7 @@ class ProfileController extends Controller
             'new_password'         => 'required',
             'confirm_new_password' => 'required|same:new_password',
         ]);
-        
+
         if (!Hash::check($request->current_password, auth()->user()->password)) {
             return redirect()->back()->with("error", "Current Password Doesn't Match!");
         }
@@ -72,6 +60,6 @@ class ProfileController extends Controller
             'password' => Hash::make($request->new_password)
         ]);
         // return ($request->all());
-        return redirect()->back()->with("status", "Password Changed Successfully!");
+        return redirect()->back()->with("msg", "Password Changed Successfully!");
     }
 }

@@ -71,7 +71,7 @@
                     }
 
                     .toast-success {
-                        background-color: #51A351;
+                        background-color: #4172ce;
                     }
 
                     .toast-error {

@@ -22,8 +22,8 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'group_name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'group_name' => 'required|max:25',
+            'description' => 'required|max:100',
 
         ]);
         $groups = Group::create([
@@ -46,8 +46,8 @@ class GroupController extends Controller
     {
         // return $request->all();
         $request->validate([
-            'group_name' => 'required|max:255',
-            'description' => 'required|max:255',
+            'group_name' => 'required|max:25',
+            'description' => 'required|max:100',
         ]);
         $groups = Group::find($request->id);
         $groups->update([

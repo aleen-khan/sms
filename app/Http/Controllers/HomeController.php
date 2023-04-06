@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $totalGroups = Group::where('created_by', auth()->user()->id)->count();
-        $totalContacts = GroupMember::whereHas('group', function ($item){
+        $totalContacts = GroupMember::whereHas('group', function ($item) {
             $item->where('created_by', auth()->user()->id);
         })->count();
         $totalSmsSent = MessageHistory::count();

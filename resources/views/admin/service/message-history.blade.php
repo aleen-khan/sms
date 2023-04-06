@@ -1,4 +1,3 @@
-{{-- @extends('admin.master') --}}
 @extends('layouts.app')
 @section('title')
     Message History
@@ -27,7 +26,7 @@
                             @foreach ($messages as $chat)
                                 <tr>
                                     <td>{{ $chat->sender_id }}</td>
-                                    <td>{{ $chat->body }}</td>
+                                    <td>{{ $chat->message }}</td>
                                 </tr>
                             @endforeach
 

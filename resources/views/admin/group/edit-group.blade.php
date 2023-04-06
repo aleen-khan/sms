@@ -18,12 +18,12 @@
                                 <div class="mb-3">
                                     <label>Group Name</label>
                                     <input type="text" class="form-control" name="group_name"
-                                        value="{{ $groups->group_name }}" placeholder="Group Name">                                    
+                                        value="{{ $groups->group_name }}" placeholder="Group Name">
                                 </div>
                                 <div class="mb-3">
                                     <label>Description</label>
                                     <input type="text" class="form-control" name="description"
-                                        value="{{ $groups->description }}" placeholder="Description">                                    
+                                        value="{{ $groups->description }}" placeholder="Description">
                                 </div>
                                 <div class="mt-2 mb-0">
                                     <div class="form-floating mb-3 mb-md-0">

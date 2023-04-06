@@ -12,6 +12,10 @@
                             <h3 class="text-center font-weight-light my-4">Create Message</h3>
                         </div>
                         <div class="card-body">
+                            @if (Session::has('msg'))
+                                <p class="alert alert-success">{{ Session::get('msg') }}</p>
+                            @endif
+
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
                                     {{ session('status') }}
@@ -28,7 +32,7 @@
 
                                     <select class="form-select" name="group[]" id="group"
                                         aria-label="Default select example">
-                                        <option selected>Select Group</option>
+                                        <option value="" selected>Select Group</option>
                                         @if (count($messages) > 0)
                                             @foreach ($messages as $grouping)
                                                 <option value="{{ $grouping['id'] }}">{{ $grouping['group_name'] }}</option>
@@ -42,7 +46,7 @@
 
                                     <select class="form-select" name="group_member_id" id="mySelect"
                                         aria-label="Default select example">
-                                        <option selected>Select Contact</option>
+                                        <option value="" selected>Select Contact</option>
                                         @foreach ($messages as $member)
                                             <option value="{{ $member['id'] }}">{{ $member['contact_name'] }}</option>
                                         @endforeach
@@ -103,5 +107,23 @@
                 })
             });
         })
+    </script>
+
+    @if (Session::has('msg'))
+        <script>
+            toastr.options = {
+                "progressBar": true,
+                "closeButton": true,
+            }
+            toastr.success("{{ Session::get('msg') }}", 'Success!', {
+                timeOut: 3000
+            });
+        </script>
+    @endif
+
+    <script>
+        $(document).ready(function() {
+            $('.alert-success').fadeIn().delay(2000).fadeOut();
+        });
     </script>
 @endpush

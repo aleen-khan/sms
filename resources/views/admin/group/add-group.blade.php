@@ -27,18 +27,18 @@
                                     <label>Group Name</label>
                                     <input type="text" class="form-control @error('group_name') is-invalid @enderror"
                                         name="group_name" aria-level="default" placeholder="Group Name">
-                                       
+
                                     @error('group_name')
                                         <span class="text-danger">{{ $message }}</span>
-                                    @enderror                                   
-                                
+                                    @enderror
+
                                 </div>
                                 <div class="mb-3">
                                     <label>Description</label>
-                                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Description"></textarea>                                    
-                                @error('description')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Description"></textarea>
+                                    @error('description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mt-2 mb-0">
                                     <div class="form-floating mb-3 mb-md-0">
