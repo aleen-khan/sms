@@ -22,8 +22,9 @@ class GroupController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'group_name' => 'required|max:25',
+            'group_name'  => 'required|max:25',
             'description' => 'required|max:100',
+
 
         ]);
         $groups = Group::create([
@@ -31,9 +32,8 @@ class GroupController extends Controller
             'description' => $request->description,
             'created_by'  => auth()->user()->id,
         ]);
-        $request->session()->flash('msg', 'Group Successfully Created');
-        // $request->session()->flash('status', 'Task was successful!');
-        return redirect(route('manage.group'))->with('message', 'Saved Successfully');
+        // $request->session()->flash('msg', 'Group Successfully Created');
+        return redirect(route('manage.group'))->with('msg', 'Group Successfully Created');
     }
 
     public function edit($id)
@@ -46,7 +46,7 @@ class GroupController extends Controller
     {
         // return $request->all();
         $request->validate([
-            'group_name' => 'required|max:25',
+            'group_name'  => 'required|max:25',
             'description' => 'required|max:100',
         ]);
         $groups = Group::find($request->id);
@@ -54,8 +54,8 @@ class GroupController extends Controller
             'group_name'  => $request->group_name,
             'description' => $request->description
         ]);
-        $request->session()->flash('msg', 'Group Successfully Updated');
-        return redirect(route('manage.group'));
+        // $request->session()->flash('msg', 'Group Successfully Updated');
+        return redirect(route('manage.group'))->with('msg', 'Group Successfully Updated');
     }
 
     public function delete($id)

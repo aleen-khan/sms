@@ -10,9 +10,9 @@ class Message extends Model
     use HasFactory;
 
     protected $fillable = [
-        'message',        
+        'message',
         'sms_count',
-        'total_count',        
+        'total_count',
         'sender_id',
         'draft',
         'status'
@@ -27,5 +27,4 @@ class Message extends Model
     {
         return $this->hasOne(MessageInfo::class, 'id');
     }
-    
 }

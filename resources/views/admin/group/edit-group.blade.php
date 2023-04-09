@@ -17,13 +17,19 @@
                                 <input type="hidden" name="id" value="{{ $groups->id }}">
                                 <div class="mb-3">
                                     <label>Group Name</label>
-                                    <input type="text" class="form-control" name="group_name"
-                                        value="{{ $groups->group_name }}" placeholder="Group Name">
+                                    <input type="text" class="form-control @error('group_name') is-invalid @enderror"
+                                        name="group_name" value="{{ $groups->group_name }}" placeholder="Group Name">
+                                    @error('group_name')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label>Description</label>
-                                    <input type="text" class="form-control" name="description"
-                                        value="{{ $groups->description }}" placeholder="Description">
+                                    <input type="text" class="form-control @error('description') is-invalid @enderror"
+                                        name="description" value="{{ $groups->description }}" placeholder="Description">
+                                    @error('description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="mt-2 mb-0">
                                     <div class="form-floating mb-3 mb-md-0">

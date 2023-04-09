@@ -24,13 +24,11 @@
                             <form action="{{ route('add.member') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-
                                     <label>Choose a Group:</label>
 
                                     <select class="form-select @error('group_id') is-invalid @enderror" name="group_id"
                                         aria-label="Default select example">
-
-                                        <option  value="" selected>Select Group</option>
+                                        <option value="" selected>Select Group</option>
 
                                         @foreach ($groups as $team)
                                             <option value="{{ $team['id'] }}">{{ $team['group_name'] }}</option>

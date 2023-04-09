@@ -53,10 +53,10 @@
                                     </select>
 
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label>Number</label>
                                     <input type="number" class="form-control" name="number" placeholder="Number">
-                                </div>
+                                </div> --}}
                                 <div class="mb-3">
                                     <label>SMS Body</label>
                                     <textarea class="form-control" name="message" placeholder="Message"></textarea>
@@ -99,8 +99,7 @@
                             $('#mySelect').append($('<option>', {
                                 value: item.id,
                                 text: item.contact_name
-
-                                // + ' ('+ item.contact_number + ')'
+                                + ' ('+ item.contact_number + ')'
                             }));
                         });
                     }

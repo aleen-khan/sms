@@ -97,9 +97,6 @@
                         filter: alpha(opacity=40);
                     }
                 </style>
-                <style>
-                    
-                </style>
 
             </div>
             <!-- End of Main Content -->

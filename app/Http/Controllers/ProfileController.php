@@ -11,7 +11,7 @@ class ProfileController extends Controller
 {
     public function profile()
     {
-        $id = Auth::user()->id;
+        $id    = Auth::user()->id;
         $users = User::find($id);
         return view('admin.profile.profile', compact('users'));
     }
@@ -25,17 +25,19 @@ class ProfileController extends Controller
     {
         // return ($request->all());
         $request->validate([
-            'name' => 'required|max:25',
+            'name'    => 'required|max:25',
+            'address' => 'max:200',
+            'phone'   => 'max:15'
         ]);
 
         $id = Auth::user()->id;
         $users = User::findOrFail($id);
-        $users->name = $request->input('name');
-        $users->phone = $request->input('phone');
+        $users->phone   = $request->input('phone');
+        $users->name    = $request->input('name');
         $users->address = $request->input('address');
         $users->update();
-        $request->session()->flash('msg', 'Profile Successfully Updated');
-        return redirect(route('profile'));
+        // $request->session()->flash('msg', 'Profile Successfully Updated');
+        return redirect(route('profile'))->with('msg', 'Profile Successfully Updated');
     }
 
     public function changePassword()

@@ -13,12 +13,12 @@
                     <li class="breadcrumb-item active" aria-current="page">Profile</li>
                 </ol>
             </nav>
-            <!-- /Breadcrumb -->
+
             @if (Session::has('msg'))
                 <p class="alert alert-success">{{ Session::get('msg') }}</p>
             @endif
             <div class="row gutters-sm">
-                <div class="col-md-4 mb-3">
+                {{-- <div class="col-md-4 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
@@ -30,7 +30,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-md-8">
                     <div class="card mb-3">
                         <div class="card-body">
@@ -38,36 +38,28 @@
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Name</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    {{ $users->name }}
-                                </div>
+                                <div class="col-sm-9 text-secondary">{{ $users->name }}</div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Email</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    {{ $users->email }}
-                                </div>
+                                <div class="col-sm-9 text-secondary">{{ $users->email }}</div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Mobile</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    {{ $users->phone }}
-                                </div>
+                                <div class="col-sm-9 text-secondary">{{ $users->phone }}</div>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Address</h6>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    {{ $users->address }}
-                                </div>
+                                <div class="col-sm-9 text-secondary">{{ $users->address }}</div>
                             </div>
                             <hr>
                             <div class="row">
@@ -80,7 +72,6 @@
                     <div class="row gutters-sm"></div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection

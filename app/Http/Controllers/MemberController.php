@@ -26,8 +26,8 @@ class MemberController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'group_id' => 'required',
-            'contact_name' => 'required|max:20',
+            'group_id'       => 'required',
+            'contact_name'   => 'required|max:20',
             'contact_number' => 'required|max:15',
         ]);
         $members = GroupMember::create([
@@ -35,8 +35,8 @@ class MemberController extends Controller
             'contact_name'   => $request->contact_name,
             'contact_number' => $request->contact_number,
         ]);
-        $request->session()->flash('msg', 'Contact Successfully Added');
-        return redirect(route('manage.member'));
+        // $request->session()->flash('msg', 'Contact Successfully Added');
+        return redirect(route('manage.member'))->with('msg', 'Contact Successfully Added');
     }
 
     public function editMember($id)
@@ -51,7 +51,7 @@ class MemberController extends Controller
     {
 
         $request->validate([
-            'contact_name' => 'required|max:20',
+            'contact_name'   => 'required|max:20',
             'contact_number' => 'required|max:15',
         ]);
         $members = GroupMember::find($request->id);
@@ -59,8 +59,8 @@ class MemberController extends Controller
             'contact_name'   => $request->contact_name,
             'contact_number' => $request->contact_number
         ]);
-        $request->session()->flash('msg', 'Contact Successfully Updated');
-        return redirect(route('manage.member'));
+        // $request->session()->flash('msg', 'Contact Successfully Updated');
+        return redirect(route('manage.member'))->with('msg', 'Contact Successfully Updated');
     }
 
     public function deleteMember($id)

@@ -74,8 +74,7 @@ class ServiceController extends Controller
             'sender_id'       => auth()->user()->id ?? null,
             'draft'           => false,
             'status'          => 'pending',
-        ]);
-        // return redirect(route('message.info'));
+        ]);        
         MessageHistory::create([
             'user_id'    => $request->group_member_id ?? null,
             'number'     => $request->number ?? null,

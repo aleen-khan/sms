@@ -25,7 +25,7 @@
                             <div class="col-md-6">
                                 <label class="labels">Name</label>
                                 <input type="text" name="name"
-                                    class="form-control @error('name') is-invalid @enderror" placeholder="first name"
+                                    class="form-control @error('name') is-invalid @enderror" placeholder="First Name"
                                     value="{{ Auth::user()->name }}">
                                 @error('name')
                                     <span class="text-danger">{{ $message }}</span>
@@ -33,21 +33,29 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="labels">Email ID</label>
-                                <input type="text" class="form-control" placeholder="enter email id" readonly
+                                <input type="text" class="form-control" placeholder="Enter Email id" readonly
                                     value="{{ Auth::user()->email }}">
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6">
                                 <label class="labels">Mobile Number</label>
-                                <input type="text" name="phone" class="form-control" placeholder="enter phone number"
-                                    value="{{ Auth::user()->phone }}">
+                                <input type="number" name="phone"
+                                    class="form-control @error('phone') is-invalid @enderror"
+                                    placeholder="Enter Phone Number" value="{{ Auth::user()->phone }}">
+                                @error('phone')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="col-md-6">
                                 <label class="labels">Address</label>
-                                <input type="text" name="address" class="form-control" placeholder="enter address"
+                                <input type="text" name="address"
+                                    class="form-control @error('address') is-invalid @enderror" placeholder="Enter Address"
                                     value="{{ Auth::user()->address }}">
+                                @error('address')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
 
@@ -61,4 +69,3 @@
         </div>
     </div>
 @endsection
-
