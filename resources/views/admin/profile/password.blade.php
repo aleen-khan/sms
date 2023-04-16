@@ -10,7 +10,6 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Password Settings</h4>
                     </div>
-
                     <form action="{{ route('update.password') }}" method="post">
                         @csrf
                         <div class="row mt-3">
@@ -27,7 +26,7 @@
                                     {{ session('error') }}
                                 </div>
                             @endif
-
+                            
                             <div class="col-md-12">
                                 <label class="form-label">Current Password</label>
                                 <input type="password" name='current_password'
@@ -64,7 +63,6 @@
                             <div class="mt-5 text-center">
                                 <button class="btn btn-primary profile-button" type="submit">Save Password</button>
                             </div>
-
                         </div>
                     </form>
                 </div>

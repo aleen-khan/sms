@@ -47,7 +47,6 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
                             <div class="col-md-6">
                                 <label class="labels">Address</label>
                                 <input type="text" name="address"
@@ -57,8 +56,6 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-
-
                         </div>
                         <div class="mt-5 text-center">
                             <button class="btn btn-primary profile-button" type="submit">Update Profile</button>

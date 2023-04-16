@@ -12,6 +12,15 @@
                             <h3 class="text-center font-weight-light my-4">Edit Group</h3>
                         </div>
                         <div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('status') }}
+                                </div>
+                            @elseif (session('error'))
+                                <div class="alert alert-danger" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <form action="{{ route('update.group') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $groups->id }}">

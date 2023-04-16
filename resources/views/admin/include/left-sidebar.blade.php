@@ -73,13 +73,6 @@
         </div>
     </li> --}}
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('single.message') }}" aria-expanded="true">
-            <i class="fa fa-comment" aria-hidden="true"></i>
-            <span>Create Message</span>
-        </a>
-    </li>
-
     {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseServiceHistory"
             aria-expanded="true" aria-controls="collapseServiceHistory">
@@ -97,13 +90,19 @@
     </li> --}}
 
     <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('single.message') }}" aria-expanded="true">
+            <i class="fa fa-comment" aria-hidden="true"></i>
+            <span>Create Message</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('message.info') }}" aria-expanded="true">
             <i class="fa fa-comments" aria-hidden="true"></i>
             <span>Message Info</span>
         </a>
     </li>
 
-    <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('buy.message') }}" aria-expanded="true">
             <i class="fa fa-credit-card" aria-hidden="true"></i>

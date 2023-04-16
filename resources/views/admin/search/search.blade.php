@@ -4,16 +4,13 @@
 @endsection
 @section('content')
     <div class="container-fluid">
-
         <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-
         <div class="card shadow mb-4">
             <div class="card-header py-3"></div>
             <div class="card-body">
                 @if (Session::has('msg'))
                     <p class="alert alert-success">{{ Session::get('msg') }}</p>
-                @endif
-                
+                @endif                
                 <div class="table-responsive">
                     @if (isset($searchContacts))
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

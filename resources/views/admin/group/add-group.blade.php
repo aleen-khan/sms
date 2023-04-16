@@ -27,11 +27,9 @@
                                     <label>Group Name</label>
                                     <input type="text" class="form-control @error('group_name') is-invalid @enderror"
                                         name="group_name" aria-level="default" placeholder="Group Name">
-
                                     @error('group_name')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
-
                                 </div>
                                 <div class="mb-3">
                                     <label>Description</label>

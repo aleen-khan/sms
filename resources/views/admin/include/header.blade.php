@@ -50,8 +50,8 @@
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <li class="nav-item dropdown no-arrow">
-            @guest
-                @if (Route::has('login'))
+        @guest
+            @if (Route::has('login'))
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
             </li>
@@ -70,21 +70,16 @@
             </a>
             <!-- Dropdown - User Information -->
             <ul class="dropdown-menu" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{ route('profile') }}">
-
-                    Profile
-                </a>
-                <a class="dropdown-item" href="{{ route('change.password') }}">
-
-                    Password Settings
-                </a>
+                
+                <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
+                <a class="dropdown-item" href="{{ route('change.password') }}">Password Settings</a>
+                
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
 
                     {{ __('Logout') }}
-
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
